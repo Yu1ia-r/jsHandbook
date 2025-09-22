@@ -1,0 +1,529 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+}
+
+/**
+  Плавный скролл
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Убирает серую подсветку при тапе на мобильных устройствах (iOS/Android)
+ */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not([fill=none],
+[fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not([stroke=none],
+[stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Michroma";
+  src: url(../fonts/Michroma-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Alegreya";
+  src: url(../fonts/Alegreya-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AnonymousPro";
+  src: url(../fonts/AnonymousPro-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TekturCondensed";
+  src: url(../fonts/TekturCondensed-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TekturCondensed";
+  src: url(../fonts/TekturCondensed-Medium.woff2) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TekturCondensed";
+  src: url(../fonts/TekturCondensed-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PressStart2P";
+  src: url(../fonts/PressStart2P-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-dark: #141414;
+  --color-light: #e7e2d2;
+  --color-accent: rgb(126, 0, 21);
+  --color-hover: #70849e;
+  --color-active: #5c6f86;
+  --border: 3px solid var(--color-accent);
+  --border-radius: 14px;
+  --container-width: 1240px;
+  --container-padding-x: 30px;
+  --margin-block: 50px;
+  --button-height: 65px;
+  --transition-duration: .3s;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+body {
+  font-size: clamp(20px, 1.6666666667vw, 24px);
+  font-family: "Alegreya";
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: all var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  background-color: var(--color-hover);
+  transition: background-color var(--transition-duration);
+}
+a:active {
+  background-color: var(--color-active);
+  transition: background-color var(--transition-duration);
+}
+a:focus-visible {
+  outline: none;
+  color: var(--color-hover);
+  transition: color var(--transition-duration);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block: 24px !important;
+  font-family: "TekturCondensed";
+}
+
+h1 {
+  font-size: clamp(46px, 3.6111111111vw, 52px);
+  color: var(--color-accent);
+  text-decoration: underline var(--color-accent);
+}
+
+h2 {
+  color: var(--color-accent);
+  font-size: clamp(38px, 2.9166666667vw, 42px);
+}
+
+h3 {
+  font-size: clamp(30px, 2.3611111111vw, 34px);
+}
+
+h4 {
+  font-size: clamp(26px, 1.9444444444vw, 28px);
+}
+
+.content {
+  margin-bottom: var(--margin-block);
+}
+
+.header {
+  font-family: "PressStart2P";
+  padding-top: 60px;
+  padding-bottom: 30px;
+  margin-bottom: var(--margin-block);
+  padding-right: 13px;
+  background-color: #c2bba5;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__menu {
+  font-size: 14px;
+  color: var(--color-accent);
+}
+.header__menu:hover {
+  color: var(--color-light);
+  border-color: var(--color-light);
+  background-color: var(--color-accent);
+  transition: border-color var(--transition-duration), color var(--transition-duration), background-color var(--transition-duration);
+}
+.header__menu:focus-visible {
+  outline: none;
+  background-color: rgba(126, 0, 21, 0.384);
+  transition: background-color var(--transition-duration);
+}
+
+.logo {
+  font-size: 30px;
+}
+
+.logo {
+  font-family: "PressStart2P";
+}
+.logo:hover {
+  background-color: transparent;
+  color: var(--color-hover);
+  transition: color var(--transition-duration);
+}
+.logo:active {
+  color: var(--color-active);
+  transition: color var(--transition-duration);
+}
+.logo:focus-visible {
+  color: inherit;
+  outline: 3px solid var(--color-hover);
+  outline-offset: 2px;
+  transition: outline var(--transition-duration);
+}
+
+.button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--button-height);
+  width: 100px;
+  border: var(--border);
+}
+
+.footer {
+  padding-block: 30px;
+  background-color: #cec7b2;
+}
+.footer__logo {
+  display: block;
+  font-size: 20px;
+}
+.footer__menu {
+  font-family: "PressStart2P";
+  font-size: 18px;
+  border: none;
+  width: auto;
+}
+.footer__menu:hover {
+  color: var(--color-accent);
+  transition: color var(--transition-duration);
+}
+.footer__menu:focus-visible {
+  outline: none;
+  color: var(--color-hover);
+  transition: color var(--transition-duration);
+}
+
+.overlay {
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  bottom: auto;
+  width: 100%;
+  border: none;
+  padding-top: 60px;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  background-color: var(--color-light);
+}
+.overlay::backdrop {
+  background-color: rgba(0, 0, 0, 0.342);
+}
+.overlay:hover {
+  transform: translateY(100vh);
+  transition: transform var(--transition-duration);
+}
+.overlay__close-button-wrapper {
+  font-family: "PressStart2P";
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+.overlay__close-button {
+  padding: 0;
+}
+.overlay__close-button svg * {
+  color: var(--color-accent);
+}
+.overlay__close-button:hover {
+  color: var(--color-light);
+  border-color: var(--color-light);
+  background-color: var(--color-accent);
+  transition: border-color var(--transition-duration), color var(--transition-duration), background-color var(--transition-duration);
+}
+.overlay__close-button:hover svg * {
+  color: var(--color-light);
+  transition: color var(--transition-duration);
+}
+.overlay__close-button:focus-visible {
+  outline: none;
+  background-color: rgba(126, 0, 21, 0.384);
+  transition: background-color var(--transition-duration);
+}
+.overlay__title {
+  margin-bottom: 15px;
+}
+.overlay__subtitle {
+  margin-block: 7px;
+}
+.overlay__sublist {
+  padding-left: 15px;
+}
+
+.block-code {
+  font-family: "AnonymousPro";
+  font-size: 18px;
+  margin-block: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  background-color: #c2bba5;
+  border-radius: var(--border-radius);
+  width: fit-content;
+  padding: 10px;
+}
+.block-code__lines {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=styles.css.map */

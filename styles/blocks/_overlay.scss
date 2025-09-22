@@ -1,0 +1,71 @@
+.overlay {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    bottom: auto;
+    width: 100%;
+    border: none;
+    padding-top: 60px;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    background-color: var(--color-light);
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.342);
+    }
+
+    &:hover {
+        transform: translateY(100vh);
+        transition: transform var(--transition-duration);
+    }
+
+
+
+
+    &__close-button-wrapper {
+        font-family: 'PressStart2P';
+        display: flex;
+        justify-content: end;
+        margin-bottom: 10px;
+    }
+
+    &__close-button {
+        padding: 0;
+
+        svg * {
+            color: var(--color-accent);
+        }
+
+        &:hover {
+            color: var(--color-light);
+            border-color: var(--color-light);
+            background-color: var(--color-accent);
+            transition: border-color var(--transition-duration), color var(--transition-duration), background-color var(--transition-duration);
+
+            svg * {
+                color: var(--color-light);
+                transition: color var(--transition-duration);
+            }
+        }
+
+        &:focus-visible {
+            outline: none;
+            background-color: rgba(126, 0, 21, 0.384);
+            transition: background-color var(--transition-duration);
+        }
+
+    }
+
+    &__title {
+        margin-bottom: 15px;
+    }
+
+    &__subtitle {
+        margin-block: 7px;
+    }
+
+    &__sublist {
+        padding-left: 15px;
+    }
+
+}

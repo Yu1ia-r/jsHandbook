@@ -1,0 +1,21 @@
+:root {
+    --color-dark: #141414;
+    --color-light: #e7e2d2;
+    --color-accent: rgb(126, 0, 21);
+    --color-hover: #70849e;
+    --color-active: #5c6f86;
+
+    --border: 3px solid var(--color-accent);
+    --border-radius: 14px;
+
+    // --font-family-base: 
+    
+    --container-width: 1240px;
+    --container-padding-x: 30px;
+
+    --margin-block: 50px;
+
+    --button-height: 65px;
+
+    --transition-duration: .3s;
+}

@@ -1,0 +1,29 @@
+.footer {
+    padding-block: 30px;
+    background-color: #cec7b2;
+
+    &__logo {
+        display: block;
+        font-size: 20px;
+    }
+
+    &__menu {
+
+        font-family: 'PressStart2P';
+        font-size: 18px;
+        border: none;
+        width: auto;
+
+        &:hover {
+            color: var(--color-accent);
+            transition: color var(--transition-duration);
+
+        }
+
+        &:focus-visible {
+            outline: none;
+            color: var(--color-hover);
+            transition: color var(--transition-duration);
+        }
+    }
+}

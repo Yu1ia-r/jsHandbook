@@ -1,0 +1,24 @@
+.logo {
+    font-family: 'PressStart2P';
+
+    &:hover {
+        background-color: transparent;
+        color: var(--color-hover);
+        transition: color var(--transition-duration);
+
+    }
+
+    &:active {
+        color: var(--color-active);
+        transition: color var(--transition-duration);
+
+    }
+
+    &:focus-visible {
+        color: inherit;
+        outline: 3px solid var(--color-hover);
+        outline-offset: 2px;
+        transition: outline var(--transition-duration);
+
+    }
+}

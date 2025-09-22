@@ -1,0 +1,13 @@
+.button {
+    @include reset-button;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--button-height);
+    width: 100px;
+
+    border: var(--border);
+    
+}
+
+

@@ -1,0 +1,17 @@
+.block-code {
+  font-family: 'AnonymousPro';
+  font-size: 18px;
+  margin-block: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  background-color: #c2bba5;
+  border-radius: var(--border-radius);
+  width: fit-content;
+  padding: 10px;
+
+  &__lines {
+    display: flex;
+    flex-direction: column;
+  }
+}

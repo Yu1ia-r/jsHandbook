@@ -457,7 +457,7 @@ h4 {
 
 .overlay {
   position: fixed;
-  top: -100vh;
+  top: 0;
   left: 0;
   bottom: auto;
   width: 100%;
@@ -469,10 +469,6 @@ h4 {
 }
 .overlay::backdrop {
   background-color: rgba(0, 0, 0, 0.342);
-}
-.overlay:hover {
-  transform: translateY(100vh);
-  transition: transform var(--transition-duration);
 }
 .overlay__close-button-wrapper {
   font-family: "PressStart2P";

@@ -1,6 +1,7 @@
 .overlay {
     position: fixed;
-    top: -100vh;
+    // top: -100vh;
+    top: 0;
     left: 0;
     bottom: auto;
     width: 100%;
@@ -14,10 +15,10 @@
         background-color: rgba(0, 0, 0, 0.342);
     }
 
-    &:hover {
-        transform: translateY(100vh);
-        transition: transform var(--transition-duration);
-    }
+    // &:hover {
+    //     transform: translateY(100vh);
+    //     transition: transform var(--transition-duration);
+    // }
 
 
 

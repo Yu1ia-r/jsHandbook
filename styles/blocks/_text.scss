@@ -1,0 +1,10 @@
+.text {
+  &__list {
+    list-style: inside;
+   
+    & li {
+    padding-left: 20px;
+
+    }
+  }
+}

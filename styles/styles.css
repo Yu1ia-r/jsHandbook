@@ -226,6 +226,13 @@ svg * {
   font-display: swap;
 }
 @font-face {
+  font-family: "AnonymousPro";
+  src: url(../fonts/AnonymousPro-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: "TekturCondensed";
   src: url(../fonts/TekturCondensed-Regular.woff2) format("woff2");
   font-weight: 400;
@@ -508,18 +515,18 @@ h4 {
 }
 
 .block-code {
-  font-family: "AnonymousPro";
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
   margin-block: 24px;
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  background-color: #c2bba5;
+  background-color: #c2bba5 !important;
   border-radius: var(--border-radius);
   width: fit-content;
   padding: 10px;
 }
-.block-code__lines {
-  display: flex;
-  flex-direction: column;
+
+.text__list {
+  list-style: inside;
+}
+.text__list li {
+  padding-left: 20px;
 }/*# sourceMappingURL=styles.css.map */

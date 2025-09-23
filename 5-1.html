@@ -1,34 +1,108 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>5.1 Булева логика: основа условий - учебник js</title>
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+
+  <script>hljs.highlightAll();</script>
 </head>
+
 <body>
-   <header class="header">
-        <div class="header__inner container">
-            <a href="#" class="header__logo logo">
-                <img src="" alt="" class="logo__image" loading="lazy">
-                <span>Учебник JavaScript</span>
-            </a>
-            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()" type="button">Меню</button>
-        </div>
+  <header class="header">
+    <div class="header__inner container">
+      <a href="#" class="header__logo logo">
+        <img src="" alt="" class="logo__image" loading="lazy">
+        <span>Учебник JavaScript</span>
+      </a>
+      <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+        type="button">Меню</button>
+    </div>
 
-    </header>
-  <h1>5.1 Булева логика: основа условий</h1>
-    <footer class="footer">
-        <div class="footer__inner container">
-            <a href="#" class="footer__logo logo">
-                <img src="" alt="" class="logo__image" loading="lazy">
-                <span>Учебник JavaScript</span>
-            </a>
-            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
-        </div>
-    </footer>
+  </header>
+  <main class="content">
+    <div class="container">
+      <h1>5.1 Булева логика: основа условий</h1>
+      <p>Прежде чем изучать условные операторы, важно понять тип данных, который лежит в их основе — Boolean (логический
+        тип). Он может принимать всего два значения: <i>true</i> (истина) и <i>false</i> (ложь).</p>
+      <p>
+      <ul class="text__list">
+        Условие внутри оператора <i>if</i>&nbsp; всегда вычисляется в одно из этих значений.
+        Выражения, которые возвращают <i>true</i> или <i>false</i> - операторы сравнения:
+        <li>> (больше), < (меньше)</li>
+        <li>>= (больше или равно), <= (меньше или равно)</li>
+        <li>== (равно по значению, не строгое)</li>
+        <li>=== (равно по значению и типу, строгое равенство)</li>
+        <li>!= (не равно по значению)</li>
+        <li>!== (не равно по значению и типу)</li>
+      </ul>
+      </p>
 
-    <dialog class="overlay" id="overlay">
+      <pre><code class="block-code">console.log(10 > 5); // true
+console.log(10 === 10); // true
+console.log(10 === '10'); // false (разные типы)
+console.log(10 != 20); // true
+</code></pre>
+
+      <!-- <div class="block-code">
+        <div class="block-code__lines">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+
+        </div>
+        <div class="block-code__body">
+
+          <span class="block-code__object">console</span>.log(<span class="block-code__number">
+            10
+          </span>
+          >
+          <span class="block-code__number">
+            5</span>);
+          <span class="block-code__comment">// true</span>
+          <br>
+          console.log(10 === 10);
+          <span class="block-code__comment">// true</span>
+          <br>
+
+          console.log(10 === '10');
+          <span class="block-code__comment">// false (разные типы)</span>
+          <br>
+
+          console.log(10 != 20);
+          <span class="block-code__comment">// true</span>
+
+        </div>
+      </div> -->
+      <!-- </div> -->
+      <p>Прямое указание булева значения:</p>
+      <pre><code class="block-code">let isLoaded = true;
+if (isLoaded) { ... } // условие выполнится
+</code></pre>
+
+  </main>
+
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <a href="#" class="footer__logo logo">
+        <img src="" alt="" class="logo__image" loading="lazy">
+        <span>Учебник JavaScript</span>
+      </a>
+      <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+    </div>
+  </footer>
+
+  <dialog class="overlay" id="overlay">
     <form class="overlay__close-button-wrapper" method="dialog">
       <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
         <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
@@ -122,4 +196,5 @@
     </div>
   </dialog>
 </body>
+
 </html>

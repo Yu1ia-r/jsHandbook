@@ -1,17 +1,31 @@
 .block-code {
-  font-family: 'AnonymousPro';
-  font-size: 18px;
+  // font-family: 'AnonymousPro';
+  font-size: 20px;
+  font-weight: 600;
   margin-block: 24px;
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  background-color: #c2bba5;
+  // display: flex;
+  // flex-direction: row;
+  // gap: 15px;
+  background-color: #c2bba5 !important;
   border-radius: var(--border-radius);
   width: fit-content;
   padding: 10px;
 
-  &__lines {
-    display: flex;
-    flex-direction: column;
-  }
+//   &__lines {
+//     display: flex;
+//     flex-direction: column;
+//     color: #595454;
+//   }
+
+//   &__comment {
+//     color: #2e5a27;
+//   }
+
+//   &__object {
+// color: #92690a;
+//   }
+
+//   &__number {
+//     color: #136ca3;
+//   }
 }

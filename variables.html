@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переменные - учебник js</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <a href="#" class="header__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+                type="button">Меню</button>
+        </div>
+
+    </header>
+    <main class="content">
+        <div class="container">
+              <div class="links__wrapper">
+                <div class="links links__left"><a href="introJS.html">← Введение в JavaScript</a></div>
+                <div class="links links__right"><a href="typesData.html">Типы данных →</a></div>
+            </div>
+            <h1>Переменные</h1>
+            <p>Основным понятием любого языка программирования является переменная. Переменная представляет собой
+                контейнер, в котором мы можем хранить какие-либо данные, например, строки или числа.</p>
+            <p>Каждая переменная должна иметь имя, которое может состоять из латинских букв, чисел, символов $ и знаков
+                подчеркивания. При этом первый символ имени переменной не должен быть цифрой. </p>
+
+            <h2>Использование переменных</h2>
+            <p>Для того, чтобы использовать переменную, ее сначала необходимо объявить: написать перед ее именем
+                ключевое слово let. Давайте объявим, например, переменную с именем a:</p>
+            <pre><code class="language-js block-code">let a;
+</code></pre>
+            <p>После объявления переменной в нее можно записать (говорят присвоить ей) какое-либо значение, например,
+                какое-либо число или строку.
+                Запись данных в переменную осуществляется с помощью операции присваивания ”=”. Давайте, например,
+                запишем в переменную a число 3:</p>
+            <pre><code class="language-js block-code">let a = 3;
+</code></pre>
+            <p>А теперь давайте выведем содержимое этой переменной на экран с помощью функции alert:</p>
+            <pre><code class="language-js block-code">let a = 3; // объявляем переменную и задаем ей значение 
+alert(a); // выведет 3
+</code></pre>
+            <p>Не обязательно записывать значение в переменную сразу после объявления. Можно сначала объявить
+                переменную, а потом присвоить ей значение:</p>
+            <pre><code class="language-js block-code">let a; // объявим переменную 
+a = 3; // присвоим ей значение 
+alert(a); // выведем значение переменной на экран
+</code></pre>
+            <p>Как вы видите, let перед именем переменной пишется только один раз - при объявлении этой переменной.
+                Затем, чтобы использовать переменную, нужно просто писать имя этой переменной.</p>
+            <h2>Объявление нескольких переменных</h2>
+            <p>Давайте объявим несколько переменных:</p>
+
+            <pre><code class="language-js block-code">let a = 1; 
+let b = 2; 
+let c = 3;</code></pre>
+            <p>Приведенный выше код можно упростить, написав let один раз и после него перечислив нужные переменные с их
+                значениями, вот так:</p>
+            <pre><code class="language-js block-code">let a = 1, b = 2, c = 3;</code></pre>
+            <p>Можно вначале объявить все переменные, а потом присваивать им значения:</p>
+            <pre><code class="language-js block-code">let a, b, c; // объявляем все 3 переменные 
+// Присваиваем переменным значения: 
+a = 1; 
+b = 2; 
+c = 3;</code></pre>
+            <h2>Изменения значений переменных</h2>
+            <p>Пусть у нас есть переменная, которой мы присвоили какое-то значение. Мы затем можем выполнить операцию
+                присваивания еще раз и присвоить переменной другое значение:</p>
+            <pre><code class="language-js block-code">let a; // объявляем переменную 
+a = 1; // записываем в нее значение 1 
+alert(a); // выведет 1
+a = 2; // записываем теперь значение 2, затирая значение 1
+alert(a); // выведет 2</code></pre>
+            <p>То есть значение переменной не является чем-то жестко привязанным к ней. Мы можем свободно записывать
+                какие-то данные в переменную, прочитывать их, потом еще что-то записывать - и так далее.</p>
+        <h2>Ошибки в объявлении</h2>
+<p>
+        Одну и ту же переменную нельзя объявить несколько раз через let. К примеру, следующий код приведет к ошибке:
+</p>        
+        <pre><code class="language-js block-code">let a = 1; 
+alert(a); 
+
+let a = 2; 
+alert(a);</code></pre>
+<p>Здесь есть два варианта решения проблемы. Можно просто ввести две разных переменных:</p>
+       <pre><code class="language-js block-code">let a = 1; 
+alert(a); 
+
+let b = 2; 
+alert(b);</code></pre>
+<p>А можно вначале объявить переменную a, а затем делать операции с нею:</p>
+  <pre><code class="language-js block-code">let a;
+
+a = 1; 
+alert(a); 
+
+a = 2; 
+alert(a);
+</code></pre>
+      
+        
+        
+        <div class="links__wrapper">
+                <div class="links links__left"><a href="introJS.html">← Введение в JavaScript</a></div>
+                <div class="links links__right"><a href="typesData.html">Типы данных →</a></div>
+            </div>
+            </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <a href="#" class="footer__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        </div>
+    </footer>
+    <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
+</body>
+<script>
+    /* === Логика для кнопки "Наверх" === */
+
+    // Ждем, пока вся HTML-структура загрузится
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // 1. Находим нашу кнопку в DOM
+        const scrollTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Убедимся, что кнопка существует на странице
+        if (scrollTopBtn) {
+
+            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
+            window.addEventListener('scroll', () => {
+
+                // Порог, после которого кнопка появится (например, 400px)
+                const scrollThreshold = 400;
+
+                // Проверяем, насколько далеко пользователь прокрутил страницу
+                if (window.scrollY > scrollThreshold) {
+                    // Если прокрутили достаточно далеко - показываем кнопку
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    // Иначе - скрываем
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            // 3. Назначаем обработчик на событие "click" (нажатие)
+            scrollTopBtn.addEventListener('click', () => {
+
+                // Плавно прокручиваем страницу к самому верху
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
+                });
+
+            });
+        }
+    });
+</script>
+    <dialog class="overlay container" id="overlay">
+        <form class="overlay__close-button-wrapper" method="dialog">
+            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+                <!DOCTYPE svg
+                    PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+                        c-54 0 -77 -4 -81 -14z" />
+                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                        -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
+                        75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
+                        0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
+                        0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
+                        -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
+                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+                        c-39 1 -74 0 -78 -4z" />
+                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                        3 c-55 2 -74 -1 -78 -11z" />
+                    </g>
+                </svg>
+                <span class="visually-hidden">close navigation menu</span>
+            </button>
+        </form>
+        <div class="overlay__body">
+            <ul class="overlay__list">
+                <h2 class="overlay__title">Содержание</h2>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                    </h3>
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="variables.html" class="overlay__link">Переменные</a>
+                    </h3>
+
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="typesData.html" class="overlay__link">Типы данных</a>
+                    </h3>
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="conditions.html" class="overlay__link">Условные
+                            конструкции</a>
+                    </h3>
+                    <!-- <ul class="overlay__sublist">
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-1.html" class="ovaelay__sublink">4.1 Булева логика: основа условий</a>
+
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-2.html" class="ovaelay__sublink">4.2 Конструкция if </a>
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-3.html" class="ovaelay__sublink">4.3 Конструкция if...else </a>
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-4.html" class="ovaelay__sublink">4.4 Последовательная проверка: else if </a>
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-5.html" class="ovaelay__sublink">4.5 Вложенные условия</a>
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-6.html" class="ovaelay__sublink">4.6 Логические операторы для составных
+                                    условий</a>
+                            </h4>
+                        </li>
+                    </ul> -->
+                </li>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="cycles.html" class="overlay__link">Циклы</a>
+
+                    </h3>
+                </li>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="function.html" class="overlay__link">Функции</a>
+                    </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="objects.html" class="overlay__link">Объекты</a>
+                </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="events.html" class="overlay__link">События</a>
+                </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="forms.html" class="overlay__link">Работа с формами</a>
+                </h3>
+                </li>
+
+            </ul>
+        </div>
+    </dialog>
+</body>
+
+</html>

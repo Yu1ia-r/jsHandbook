@@ -1,11 +1,14 @@
 .header {
+  top: 0;
+  width: 100%;
+  position: fixed;
   font-family: 'PressStart2P';
   padding-top: 60px;
   padding-bottom: 30px;
   margin-bottom: var(--margin-block);
   padding-right: 13px;
-  background-color: #c2bba5;
-
+  background: #c2bba5;
+background: linear-gradient(180deg,rgba(194, 187, 165, 1) 60%, rgba(171, 165, 147, 1) 100%);
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -34,4 +37,8 @@
 
 .logo {
   font-size: 30px;
+
+   @include mobile {
+        font-size: 24px;
+    }
 }

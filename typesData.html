@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Типы данных - учебник js</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <a href="#" class="header__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+                type="button">Меню</button>
+        </div>
+
+    </header>
+    <main class="content">
+        <div class="container">
+
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="variables.html">← Переменные</a></div>
+                <div class="links links__right"><a href="conditions.html">Условные конструкции →</a></div>
+            </div>
+
+            <h1>Типы данных</h1>
+            <p>JavaScript — язык с динамической типизацией. Это означает, что при объявлении переменной мы не указываем
+                её тип явно, и тип значения может изменяться во время работы программы.
+                Для эффективной работы и понимания кода важно разбираться какие типы данных существуют в языке, как они
+                работают и где применяются.</p>
+
+
+            <h3>Number (числа)</h3>
+            <p>
+                В JavaScript все числа представлены в виде 64-битных чисел с плавающей точкой (формат IEEE 754).</li>
+                Числа могут быть целыми и дробными.
+            </p>
+            <pre><code class="language-js block-code">let a = 10;  // целое число</code></pre>
+            <pre><code class="language-js block-code">let b = 3.14;  // дробное число       
+let c = -100;  // отрицательное число       
+
+alert(1 / 0); // Infinity  
+alert(-1 / 0);  //-Infinity
+alert("abc" / 3); //NaN</code></pre>
+            <h4>Особенности:</h4>
+            <p>Операции с числами довольно просты, но из-за плавающей точки могут возникать неточные вычисления:
+            </p>
+            <pre><code class="language-js block-code">alert(0.1 + 0.2); //0.300000000000004(ошибка округления) </code></pre>
+
+
+            <h3>BigInt (большие целые числа)</h3>
+            <p>BigInt позволяет работать с очень большими целыми числами, которые не помещаются в Number (максимальное
+                значение ~9 квинтиллионов).
+                Для создания BigInt добавляется суффикс n:
+            </p>
+            <pre><code class="language-js block-code">let big = 900719925474099199999n;
+
+alert (big + 1n);     // 900719925474099200000n
+alert(typeof big);   // "bigint"
+</code></pre>
+
+            <h3>String (строки)</h3>
+            <p>Строка — это последовательность символов, заключенная в кавычки. Можно использовать:
+                Двойные " "
+                Одинарные ' '
+                Обратные кавычки `, которые позволяют создавать многострочные строки и вставлять выражения (template
+                literals).</p>
+            <pre><code class="language-js block-code">let str1 = "Привет";
+let str2 = 'Мир';
+let str3 = `Сумма: ${a + b}`;
+
+alert(str1 + " " + str2); //”Привет Мир”  
+alert(str3);  //Сумма:13.14</code></pre>
+            <h3>Boolean (логический тип)</h3>
+            <ul class="text__list">
+                Логический тип имеет два возможных значения:
+                <li>true — истина</li>
+                <li>false — ложь</li>
+            </ul>
+            <p>Он широко используется в условиях и циклах.Они используются для таких вещей, где ответы предполагают два
+                варианта ответа - да или нет.</p>
+
+            <pre><code class="language-js block-code">let a = true; 
+let b = false; 
+
+alert(a && b);//false (логическое И)
+alert(a || b);//true(логическое ИЛИ)  
+alert(!a); //false(отрицание) </code></pre>
+
+            <h3>Undefined (неопределённый тип)</h3>
+            <p>undefined — автоматическое значение переменной, если ей не присвоено никакое значение.</p>
+            <pre><code class="language-js block-code">let x;
+alert(x);  //undefined            
+alert(typeof x);  //”undefined”</code></pre>
+            <p>Можно явно присвоить undefined, но делать это не рекомендуется — лучше использовать null (см. далее).</p>
+            <h3>Null (пустое значение)</h3>
+            <p>null — специальное значение, указывающее, что значение отсутствует.</p>
+            <pre><code class="language-js block-code">let y = null;
+alert(y);  //null
+alert(typeof y); //”object”-историческая особенность JS, на самом деле null не объект</code></pre>
+            <p>null часто используется, чтобы явно указать, что переменная "пустая" или "очищена".</p>
+            <h3>Symbol (символы)</h3>
+            <p>Symbol — примитивный тип, появившийся в ECMAScript 2015 (ES6). Он создаёт уникальные идентификаторы,
+                которые нельзя случайно перезаписать или столкнуть с другими именами. В основном использующееся для
+                отладки кода.</p>
+            <pre><code class="language-js block-code">let sym1 = Symbol("id");
+let sym2 = Symbol("id");
+
+alert(sym1 === sym2);  //false- даже с одинаковыми описаниями они уникальны 
+</code></pre>
+            <h2>Принципы работы с типами данных</h2>
+            <p>JavaScript автоматически преобразует (кастует) типы в определённых операциях — это называется неявным
+                приведением типов:</p>
+            <pre><code class="language-js block-code">alert("5" - 2);    // 3 (строка превратилась в число)
+alert("5" + 2);    // "52" (число превратилась в строку)
+alert(Boolean("")); // false (пустая строка — «ложное» значение)
+</code></pre>
+            <p>Тем не менее, смешанные типы могут приводить к трудноуловимым багам, поэтому лучше использовать явное
+                преобразование:</p>
+            <pre><code class="language-js block-code">let a = "5";
+let b = Number(a) + 2;  // 7
+</code></pre>
+
+            <!-- <h2>Список литературы</h2>
+            <ol>
+                <p>добавить все ссылки общим списком в конце??</p>
+                <li><a class="text__link"
+                        href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Language_overview">developer.mozilla.org</a>
+                </li>
+                <li><a class="text__link" href="https://code.mu/ru/javascript/book/prime/">code.mu</a></li>
+            </ol>
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="variables.html">← Переменные</a></div>
+                <div class="links links__right"><a href="conditions.html">Условные конструкции →</a></div>
+            </div> -->
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="variables.html">← Переменные</a></div>
+                <div class="links links__right"><a href="conditions.html">Условные конструкции →</a></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <a href="#" class="footer__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        </div>
+    </footer>
+    <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
+</body>
+<script>
+    /* === Логика для кнопки "Наверх" === */
+
+    // Ждем, пока вся HTML-структура загрузится
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // 1. Находим нашу кнопку в DOM
+        const scrollTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Убедимся, что кнопка существует на странице
+        if (scrollTopBtn) {
+
+            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
+            window.addEventListener('scroll', () => {
+
+                // Порог, после которого кнопка появится (например, 400px)
+                const scrollThreshold = 400;
+
+                // Проверяем, насколько далеко пользователь прокрутил страницу
+                if (window.scrollY > scrollThreshold) {
+                    // Если прокрутили достаточно далеко - показываем кнопку
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    // Иначе - скрываем
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            // 3. Назначаем обработчик на событие "click" (нажатие)
+            scrollTopBtn.addEventListener('click', () => {
+
+                // Плавно прокручиваем страницу к самому верху
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
+                });
+
+            });
+        }
+    });
+</script>
+    <dialog class="overlay container" id="overlay">
+        <form class="overlay__close-button-wrapper" method="dialog">
+            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+                <!DOCTYPE svg
+                    PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+                        c-54 0 -77 -4 -81 -14z" />
+                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                        -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
+                        75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
+                        0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
+                        0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
+                        -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
+                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+                        c-39 1 -74 0 -78 -4z" />
+                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                        3 c-55 2 -74 -1 -78 -11z" />
+                    </g>
+                </svg>
+                <span class="visually-hidden">close navigation menu</span>
+            </button>
+        </form>
+        <div class="overlay__body">
+            <ul class="overlay__list">
+                <h2 class="overlay__title">Содержание</h2>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                    </h3>
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="variables.html" class="overlay__link">Переменные</a>
+                    </h3>
+
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="typesData.html" class="overlay__link">Типы данных</a>
+                    </h3>
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="conditions.html" class="overlay__link">Условные
+                            конструкции</a>
+                    </h3>
+                    <!-- <ul class="overlay__sublist">
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-1.html" class="ovaelay__sublink">4.1 Булева логика: основа условий</a>
+
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-2.html" class="ovaelay__sublink">4.2 Конструкция if </a>
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-3.html" class="ovaelay__sublink">4.3 Конструкция if...else </a>
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-4.html" class="ovaelay__sublink">4.4 Последовательная проверка: else if </a>
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-5.html" class="ovaelay__sublink">4.5 Вложенные условия</a>
+                            </h4>
+                        </li>
+                        <li class="overlay__subitem">
+                            <h4>
+                                <a href="4-6.html" class="ovaelay__sublink">4.6 Логические операторы для составных
+                                    условий</a>
+                            </h4>
+                        </li>
+                    </ul> -->
+                </li>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="cycles.html" class="overlay__link">Циклы</a>
+
+                    </h3>
+                </li>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="function.html" class="overlay__link">Функции</a>
+                    </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="objects.html" class="overlay__link">Объекты</a>
+                </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="events.html" class="overlay__link">События</a>
+                </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="forms.html" class="overlay__link">Работа с формами</a>
+                </h3>
+                </li>
+
+            </ul>
+        </div>
+    </dialog>
+</body>
+
+</html>

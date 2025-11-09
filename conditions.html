@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Условные конструкции - учебник js</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <a href="#" class="header__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+                type="button">Меню</button>
+        </div>
+
+    </header>
+    <main class="content">
+        <div class="container">
+            <div class="links__wrapper">
+             
+                <div class="links links__left"><a href="typesData.html">← Типы данных</a></div>
+                   <div class="links links__right"><a href="cycles.html">Циклы →</a></div>
+            </div>
+            <h1>Условные конструкции</h1>
+
+            <p>Любая программа, от простого скрипта до сложного приложения, должна уметь принимать решения. "Если
+                пользователь вошел в систему, показать его профиль, иначе показать форму входа". "Если результат
+                вычислений отрицательный, выделить его красным цветом". Для реализации этой логики в JavaScript
+                используются условные конструкции.</p>
+
+            <h2>Булева логика: основа условий</h2>
+            <p>Прежде чем изучать условные операторы, важно понять тип данных, который лежит в их основе — Boolean
+                (логический
+                тип). Он может принимать всего два значения: <i>true</i> (истина) и <i>false</i> (ложь).</p>
+            <p>
+                Условие внутри оператора <i>if</i>&nbsp; всегда вычисляется в одно из этих значений.
+                Выражения, которые возвращают <i>true</i> или <i>false</i> - операторы сравнения:
+            <ul class="text__list">
+                <li>> (больше), < (меньше)</li>
+                <li>>= (больше или равно), <= (меньше или равно)</li>
+                <li>== (равно по значению, не строгое)</li>
+                <li>=== (равно по значению и типу, строгое равенство)</li>
+                <li>!= (не равно по значению)</li>
+                <li>!== (не равно по значению и типу)</li>
+            </ul>
+            </p>
+            <pre><code class="language-js block-code">console.log(10 > 5); // true
+console.log(10 === 10); // true
+console.log(10 === '10'); // false (разныетипы)
+console.log(10 != 20); // true
+</code></pre>
+            <p>Прямое указание булева значения:</p>
+            <pre><code class="language-js block-code">let isLoaded = true;
+if (isLoaded) { ... } // условие выполнится
+</code></pre>
+            <h2>Конструкция if</h2>
+            <p>Конструкция <i>if</i> — фундаментальный инструмент для ветвления логики программы. Она выполняет блок кода <b>только если</b> указанное условие истинно.</p>
+            <p>Синтаксис:</p>
+            <pre><code class="language-js block-code">if (условие) {
+// Тело оператора if
+// Код, выполняемый, если условие истинно (true)
+}
+// Код, который выполнится в любом случае
+</code></pre>
+            <p>Пример и пошаговое выполнение:</p>
+            <pre><code class="language-js block-code">let currentTemperature = 25;
+
+// 1. Вычисляетсяусловие: (currentTemperature > 20)
+// 2. currentTemperature = 25, поэтому (25 > 20) = true
+// 3. Поскольку условие истинно, код внутри блока выполняется
+
+if (currentTemperature > 20) {
+console.log("На улице тепло. Можно идти в футболке."); // Это сообщение будет выведено
+}
+console.log("Проверка погоды завершена."); // Этот код выполнится в любом случае
+</code></pre>
+            <p>Важное замечание о блоках кода: Фигурные скобки <i>{}</i> определяют <b>блок кода</b>, который ассоциируется с оператором <i>if</i>. Если внутри блока
+                всего одна инструкция, скобки можно опустить. Однако настоятельно рекомендуется всегда их
+                использовать, особенно новичкам. Это делает код более читаемым, предотвращает ошибки и упрощает его
+                дальнейшее расширение.</p>
+            
+            <h2>Конструкция if...else</h2>
+            <p>Часто требуется предусмотреть не только то, что произойдет при истинности условия, но и то, что случится в противном случае. Для этого используется расширенная конструкция <i>if...else</i> ("если...иначе").</p>
+            <p>Синтаксис:</p>
+            <pre><code class="language-js block-code">if (условие) {
+// Блок if: выполняется, если условие истинно
+} else {
+// Блок else: выполняется, если условие ложно
+}
+// Код после конструкции
+</code></pre>
+            <p>Пример:</p>
+            <pre><code class="language-js block-code">let age = 16;
+if (age >= 18) {
+console.log("Вы совершеннолетний. Доступ разрешен.");
+} else {
+// Этот блок выполнится, так как (16 >= 18) = false
+console.log("Вы несовершеннолетний. Доступ запрещен.");
+}
+console.log("Проверка возраста завершена.");
+</code></pre>
+
+            <h2>Последовательная проверка: else if</h2>
+            <p>Когда существует не два, а три и более возможных сценария, на помощь приходит конструкция <i>else if</i>. Она позволяет проверить несколько условий подряд.</p>
+            <p>Синтаксис:</p>
+            <pre><code class="language-js block-code">if (условие1) {
+// Выполняется, если условие1 истинно
+} else if (условие2) {
+// Выполняется, если условие1 ложно, но условие2 истинно
+} else if (условие3) {
+// Выполняется, если условие1 и условие2 ложны, но условие3 истинно
+} else {
+// Выполняется, если все вышеперечисленные условия ложны
+}
+</code></pre>
+            <p>Пример:</p>
+            <pre><code class="language-js block-code">let testScore = 92;
+let grade;
+if (testScore >= 90) {
+grade = "A";
+console.log("Отлично!");
+} else if (testScore >= 80) { // Проверяется, только если score < 90
+grade = "B";
+console.log("Хорошо!");
+} else if (testScore >= 70) { // Проверяется, только если score < 80
+grade = "C";
+console.log("Удовлетворительно.");
+} else { // Сработает, только если все условия выше ложны (score < 70)
+grade = "F";
+console.log("Неудовлетворительно. Необходимо повторить материал.");
+}
+console.log(`Ваша оценка: ${grade}`);
+</code></pre>
+            <p>Ключевой момент: Выполнение переходит только к одному блоку. Интерпретатор проверяет условия сверху вниз. Как только находится первое истинное условие, выполняется соответствующий ему блок, а все последующие <i>else if</i> и <i>else</i> игнорируются.</p>
+
+            <h2>Вложенные условия</h2>
+            <p>Условные операторы можно помещать внутрь других условных операторов. Это называется вложенностью.</p>
+            <p>Пример: Допустим, мы хотим дать скидку только зарегистрированным пользователям, если их корзина превышает определенную сумму.</p>
+            <pre><code class="language-js block-code">let isUserLoggedIn = true;
+let cartTotal = 1500;
+if (isUserLoggedIn) {
+// Этот блок выполняется, если пользователь вошел в систему
+if (cartTotal > 1000) {
+console.log("Вам предоставляется скидка 10%!");
+} else {
+console.log("Добавьте товаров на сумму более 1000 руб. для получения скидки.");
+}
+} else {
+console.log("Для получения скидки необходимо авторизоваться.");
+}
+</code></pre>
+            <p>Вложенность может быть очень глубокой, но важно не злоупотреблять ею, так как это ухудшает читаемость кода.</p>
+
+            <h2>Логические операторы для составных условий</h2>
+            <p>Часто условие должно состоять из нескольких частей. Для их объединения используются логические операторы.</p>
+            <ul class="text__list">
+                <li><b>&& (Логическое И)</b>: Возвращает <i>true</i>, только если <b>оба</b> операнда истинны.</li>
+            </ul>
+            <pre><code class="language-js block-code">let isWeekend = true;
+let isSunny = false;
+if (isWeekend && isSunny) {
+console.log("Идеальный день для пикника!"); // Не выполнится (isSunny = false)
+}
+</code></pre>
+            <ul class="text__list">
+                <li><b>|| (Логическое ИЛИ)</b>: Возвращает <i>true</i>, если <b>хотя бы один</b> операнд истинен.</li>
+            </ul>
+            <pre><code class="language-js block-code">let hasCreditCard = false;
+let hasEnoughCash = true;
+if (hasCreditCard || hasEnoughCash) {
+console.log("Оплата прошла успешно."); // Выполнится (hasEnoughCash = true)
+}
+</code></pre>
+            <ul class="text__list">
+                <li><b>! (Логическое НЕ)</b>: Инвертирует булево значение. <i>true</i> становится <i>false</i>, и наоборот.</li>
+            </ul>
+            <pre><code class="language-js block-code">let isUserBanned = false;
+if (!isUserBanned) { // !false = true
+console.log("Добро пожаловать на сайт!"); // Выполнится
+}
+</code></pre>
+            <p>Комбинирование операторов: С помощью круглых скобок можно создавать сложные комплексные условия, задавая приоритет их выполнения.</p>
+            <pre><code class="language-js block-code">let age = 25;
+let hasDriverLicense = true;
+// "Если возраст больше 18 И (имеются права ИЛИ человек старше 65)"
+if (age > 18 && (hasDriverLicense || age > 65)) {
+console.log("Можно арендовать автомобиль.");
+}
+</code></pre>
+
+            <h2>Конструкция множественного выбора switch</h2>
+            <p>Конструкция <i>switch</i> предоставляет альтернативный способ организации ветвления программы, когда нужно сравнить одно значение с множеством возможных вариантов.</p>
+            <h3>Базовый синтаксис</h3>
+            <pre><code class="language-js block-code">switch (выражение) {
+case значение1:
+// код, выполняемый если выражение === значение1
+break;
+case значение2:
+// код, выполняемый если выражение === значение2
+break;
+default:
+// код, выполняемый если ни один case не подошел
+}
+</code></pre>
+            <p>Как это работает:</p>
+            <ul class="text__list">
+                <li>Вычисляется выражение в скобках</li>
+                <li>Его значение последовательно сравнивается со значениями в блоках <i>case</i> (используется строгое сравнение <i>===</i>)</li>
+                <li>Если совпадение найдено, выполняется код соответствующего блока <i>case</i></li>
+                <li>Ключевое слово <i>break</i> прерывает выполнение конструкции <i>switch</i></li>
+                <li>Если совпадений не найдено, выполняется код в блоке <i>default</i> (если он есть)</li>
+            </ul>
+            <h3>Пример использования</h3>
+            <pre><code class="language-js block-code">let dayOfWeek = 3;
+let dayName;
+switch (dayOfWeek) {
+case 1:
+dayName = "Понедельник";
+break;
+case 2:
+dayName = "Вторник";
+break;
+case 3:
+dayName = "Среда"; // Это значение будет выбрано
+break;
+case 4:
+dayName = "Четверг";
+break;
+case 5:
+dayName = "Пятница";
+break;
+case 6:
+dayName = "Суббота";
+break;
+case 7:
+dayName = "Воскресенье";
+break;
+default:
+dayName = "Неизвестный день";
+}
+console.log(dayName); // "Среда"
+</code></pre>
+            <h3>Особенности конструкции switch</h3>
+            <p><b>"Проваливание" (fallthrough)</b></p>
+            <p>Если не использовать <i>break</i>, выполнение продолжится в следующем блоке <i>case</i>:</p>
+            <pre><code class="language-js block-code">let rating = 4;
+let message = "";
+switch (rating) {
+case 5:
+message += "Отлично! ";
+case 4:
+message += "Очень хорошо! ";
+case 3:
+message += "Хорошо! ";
+case 2:
+message += "Удовлетворительно. ";
+case 1:
+message += "Плохо. ";
+break;
+default:
+message = "Неизвестная оценка";
+}
+console.log(message); // "Очень хорошо! Хорошо! Удовлетворительно. Плохо. "
+</code></pre>
+            <p><b>Группировка case</b></p>
+            <p>Несколько условий <i>case</i> можно группировать для выполнения одного блока кода:</p>
+            <pre><code class="language-js block-code">let fruit = "Яблоко";
+let type;
+switch (fruit) {
+case "Апельсин":
+case "Мандарин":
+case "Лимон":
+type = "Цитрусовые";
+break;
+case "Яблоко":
+case "Груша":
+type = "Семечковые"; // Это значение будет выбрано
+break;
+case "Вишня":
+case "Черешня":
+type = "Косточковые";
+break;
+default:
+type = "Неизвестный тип";
+}
+console.log(type); // "Семечковые"
+</code></pre>
+            <h3>Когда использовать switch вместо if...else</h3>
+            <p>Используйте <i>switch</i>, когда:</p>
+            <ul class="text__list">
+                <li>Есть одна переменная/выражение для сравнения</li>
+                <li>Много возможных значений для сравнения (более 3-4)</li>
+                <li>Нужна лучшая читаемость для множественных условий</li>
+            </ul>
+            <p>Используйте <i>if...else</i>, когда:</p>
+            <ul class="text__list">
+                <li>Нужно проверить диапазоны значений</li>
+                <li>Условия сложные и включают логические операторы</li>
+                <li>Нужно проверить разные переменные в одном условии</li>
+            </ul>
+
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="typesData.html">← Типы данных</a></div>
+                   <div class="links links__right"><a href="cycles.html">Циклы →</a></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <a href="#" class="footer__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        </div>
+    </footer>
+    <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
+</body>
+<script>
+    /* === Логика для кнопки "Наверх" === */
+
+    // Ждем, пока вся HTML-структура загрузится
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // 1. Находим нашу кнопку в DOM
+        const scrollTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Убедимся, что кнопка существует на странице
+        if (scrollTopBtn) {
+
+            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
+            window.addEventListener('scroll', () => {
+
+                // Порог, после которого кнопка появится (например, 400px)
+                const scrollThreshold = 400;
+
+                // Проверяем, насколько далеко пользователь прокрутил страницу
+                if (window.scrollY > scrollThreshold) {
+                    // Если прокрутили достаточно далеко - показываем кнопку
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    // Иначе - скрываем
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            // 3. Назначаем обработчик на событие "click" (нажатие)
+            scrollTopBtn.addEventListener('click', () => {
+
+                // Плавно прокручиваем страницу к самому верху
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
+                });
+
+            });
+        }
+    });
+</script>
+    <dialog class="overlay container" id="overlay">
+        <form class="overlay__close-button-wrapper" method="dialog">
+            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+                        c-54 0 -77 -4 -81 -14z" />
+                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                        -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
+                        75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
+                        0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
+                        0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
+                        -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
+                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+                        c-39 1 -74 0 -78 -4z" />
+                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                        3 c-55 2 -74 -1 -78 -11z" />
+                    </g>
+                </svg>
+                <span class="visually-hidden">close navigation menu</span>
+            </button>
+        </form>
+        <div class="overlay__body">
+            <ul class="overlay__list">
+                <h2 class="overlay__title">Содержание</h2>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="variables.html" class="overlay__link">Переменные</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="typesData.html" class="overlay__link">Типы данных</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="conditions.html" class="overlay__link">Условные
+                            конструкции</a>
+                    </h3>
+                </li>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="cycles.html" class="overlay__link">Циклы</a>
+                    </h3>
+                </li>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="function.html" class="overlay__link">Функции</a>
+                    </h3>
+                </li>
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="objects.html" class="overlay__link">Объекты</a>
+                </h3>
+                </li>
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="events.html" class="overlay__link">События</a>
+                </h3>
+                </li>
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="forms.html" class="overlay__link">Работа с формами</a>
+                </h3>
+                </li>
+            </ul>
+        </div>
+    </dialog>
+</body>
+
+</html>

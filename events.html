@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>События - учебник js</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <a href="#" class="header__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+                type="button">Меню</button>
+        </div>
+
+    </header>
+    <main class="content">
+        <div class="container">
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="objects.html">← Объекты</a></div>
+                <div class="links links__right"><a href="forms.html">Работа с формами →</a></div>
+            </div>
+            <h1>События</h1>
+
+            <h2>Что такое DOM?</h2>
+            <p>DOM (Document Object Model) — это специальный объект, который создаётся браузером, когда он загружает
+                HTML-страницу. Он представляет страницу как иерархию объектов (дерево узлов), с которыми можно работать
+                с помощью JavaScript.</p>
+            <p>Простыми словами: DOM — это «мост» между HTML-кодом и JavaScript. Благодаря DOM мы можем менять
+                содержимое страницы, стили и реагировать на действия пользователя.</p>
+
+            <h2>Зачем нужен DOM?</h2>
+            <p>DOM используется для:</p>
+            <ul class="text__list">
+                <li>доступа к элементам HTML (например, получить заголовок или кнопку),</li>
+                <li>изменения содержимого (текста, картинок, ссылок),</li>
+                <li>управления стилями (например, подсветить красным цветом),</li>
+                <li>создания и удаления элементов (например, добавлять новые строки в таблицу),</li>
+                <li>реагирования на события (клик, нажатие клавиш, ввод текста).</li>
+            </ul>
+            <p>Благодаря DOM сайты становятся интерактивными.</p>
+
+            <h2>Основы работы с DOM</h2>
+
+            <h3>Получение элементов</h3>
+            <p>Для доступа к элементам HTML используют специальные методы:</p>
+            <pre><code class="language-js block-code">document.getElementById("id");         // по id
+document.getElementsByClassName("cls"); // по классу
+document.getElementsByTagName("p");    // по тегу
+document.querySelector(".cls");        // первый подходящий элемент
+document.querySelectorAll("p");        // все подходящие элементы
+</code></pre>
+            <p>Пример:</p>
+            <pre><code class="language-js block-code">&lt;p id="text"&gt;Привет!&lt;/p&gt;
+
+&lt;script&gt;
+const el = document.getElementById("text");
+console.log(el.textContent); // "Привет!"
+&lt;/script&gt;
+</code></pre>
+
+            <h3>Изменение содержимого</h3>
+            <pre><code class="language-js block-code">el.textContent = "Новый текст";      // изменить текст
+el.innerHTML = "<b>Жирный текст</b>"; // изменить HTML внутри
+</code></pre>
+
+            <h3>Работа со стилями</h3>
+            <pre><code class="language-js block-code">el.style.color = "red";       // сделать текст красным
+el.style.fontSize = "20px";   // изменить размер шрифта
+</code></pre>
+
+            <h3>Создание и удаление элементов</h3>
+            <pre><code class="language-js block-code">const newEl = document.createElement("div"); // создаём
+newEl.textContent = "Я новый элемент!";
+document.body.appendChild(newEl);            // добавляем в конец body
+newEl.remove(); // удаляем
+</code></pre>
+
+            <h2>События</h2>
+            <p>События позволяют реагировать на действия пользователя.</p>
+            <pre><code class="language-js block-code">&lt;button id="btn"&gt;Нажми меня&lt;/button&gt;
+
+&lt;script&gt;
+const btn = document.getElementById("btn");
+btn.addEventListener("click", () => {
+alert("Кнопка нажата!");
+});
+&lt;/script&gt;
+</code></pre>
+
+
+
+            <h2>События мыши: клики, движения, наведения</h2>
+            <p>События мыши — это самый распространенный способ взаимодействия. Привычный нам <i>click</i> — это на
+                самом деле последовательность: сначала происходит <i>mousedown</i> (нажатие кнопки), а затем
+                <i>mouseup</i> (отпускание).
+            </p>
+            <p>Разница между событиями наведения важна: <i>mouseover</i> и <i>mouseout</i> <b>всплывают</b>. Это
+                означает, что событие сработает и на родительском элементе, если мышь попадет на дочерний элемент, что
+                часто приводит к нежелательному поведению.</p>
+            <p>События <i>mouseenter</i> и <i>mouseleave</i> <b>не всплывают</b>. Они срабатывают только тогда, когда
+                курсор входит или покидает сам элемент, без учета его потомков, что делает их идеальными для эффектов
+                наведения.</p>
+            <p>Событие <i>mousemove</i> срабатывает каждый раз, когда курсор мыши двигается. Оно может срабатывать
+                множество раз в секунду, что делает его потенциально опасным для производительности, если в обработчике
+                выполняется сложный код.</p>
+      
+
+            <h2>Keydown и keyup</h2>
+            <p>Клавиатурные события позволяют создавать «горячие клавиши». Основные события — это <i>keydown</i>
+                (нажатие клавиши) и <i>keyup</i> (отпускание).</p>
+            <ul class="text__list">
+                <li><b>event.key:</b> Возвращает символ, соответствующий нажатой клавише (например, 'A'). Это свойство
+                    зависит от языка раскладки и регистра.</li>
+                <li><b>event.code:</b> Возвращает «физический» код клавиши (например, 'KeyZ'). Он не зависит от языка
+                    раскладки или регистра. Это свойство — лучший выбор для создания горячих клавиш.</li>
+            </ul>
+            <p>Однако при использовании <i>event.code</i> следует быть осторожным, так как не все клавиатурные раскладки
+                одинаковы (например, на немецкой раскладке Y и Z поменялись местами).</p>
+
+            <h2>Всплытие и погружение</h2>
+            <p>Когда происходит событие, оно не просто срабатывает на элементе. У него есть жизненный цикл из трех фаз:
+            </p>
+            <ul class="text__list">
+                <li><b>Фаза погружения (Capturing):</b> Событие "спускается" от <i>window</i> вниз по иерархии до
+                    элемента-цели.</li>
+                <li><b>Фаза цели (Target):</b> Событие достигает элемента, на котором оно произошло.</li>
+                <li><b>Фаза всплытия (Bubbling):</b> Событие "поднимается" обратно вверх по иерархии. Именно в этой фазе
+                    чаще всего и обрабатываются события.</li>
+            </ul>
+            <p>В объекте события есть два важных свойства, которые часто путают:</p>
+            <ul class="text__list">
+                <li><b>event.target:</b> Это самый "глубокий" элемент, который инициировал событие. Он не меняется.</li>
+                <li><b>event.currentTarget:</b> Это элемент, на котором в данный момент выполняется обработчик. Его
+                    значение меняется по мере всплытия.</li>
+            </ul>
+
+            <h2>Делегирование событий</h2>
+            <p>Всплытие событий позволяет использовать мощную технику — <b>делегирование событий</b>.</p>
+            <p>Представим, что у нас есть список из 100 элементов. Назначение 100 обработчиков - это неэффективно и
+                требует много памяти. Решение — назначить всего один обработчик на их общий родительский контейнер.</p>
+            <p>Благодаря всплытию, любой клик на дочернем элементе «поднимется» до родителя, где обработчик его
+                перехватит. Внутри обработчика мы используем <i>event.target</i>, чтобы определить, на каком элементе
+                произошел клик.</p>
+            <p>Преимущества делегирования:</p>
+            <ul class="text__list">
+                <li><b>Производительность:</b> Мы используем только один обработчик, что экономит ресурсы.</li>
+                <li><b>Гибкость:</b> Новые добавленные элементы автоматически "подхватятся" обработчиком, так как их
+                    события тоже будут всплывать.</li>
+            </ul>
+            <p>Если элемент, на который вы кликаете, содержит вложенные элементы (например, иконку в кнопке),
+                <i>event.target</i> будет указывать на иконку. Для решения этой проблемы используйте метод
+                <i>event.target.closest()</i>, который ищет ближайшего родителя, соответствующего селектору.
+            </p>
+
+
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="objects.html">← Объекты</a></div>
+                <div class="links links__right"><a href="forms.html">Работа с формами →</a></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <a href="#" class="footer__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        </div>
+    </footer>
+    <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
+</body>
+<script>
+    /* === Логика для кнопки "Наверх" === */
+
+    // Ждем, пока вся HTML-структура загрузится
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // 1. Находим нашу кнопку в DOM
+        const scrollTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Убедимся, что кнопка существует на странице
+        if (scrollTopBtn) {
+
+            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
+            window.addEventListener('scroll', () => {
+
+                // Порог, после которого кнопка появится (например, 400px)
+                const scrollThreshold = 400;
+
+                // Проверяем, насколько далеко пользователь прокрутил страницу
+                if (window.scrollY > scrollThreshold) {
+                    // Если прокрутили достаточно далеко - показываем кнопку
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    // Иначе - скрываем
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            // 3. Назначаем обработчик на событие "click" (нажатие)
+            scrollTopBtn.addEventListener('click', () => {
+
+                // Плавно прокручиваем страницу к самому верху
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
+                });
+
+            });
+        }
+    });
+</script>
+<dialog class="overlay container" id="overlay">
+    <form class="overlay__close-button-wrapper" method="dialog">
+        <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                    <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                    <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+                        c-54 0 -77 -4 -81 -14z" />
+                    <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                        -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
+                        75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
+                        0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
+                        0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
+                        -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
+                    <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+                        c-39 1 -74 0 -78 -4z" />
+                    <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                        3 c-55 2 -74 -1 -78 -11z" />
+                </g>
+            </svg>
+            <span class="visually-hidden">close navigation menu</span>
+        </button>
+    </form>
+    <div class="overlay__body">
+        <ul class="overlay__list">
+            <h2 class="overlay__title">Содержание</h2>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                </h3>
+            </li>
+            <li>
+                <h3 class="overlay__subtitle">
+                    <a href="variables.html" class="overlay__link">Переменные</a>
+                </h3>
+            </li>
+            <li>
+                <h3 class="overlay__subtitle">
+                    <a href="typesData.html" class="overlay__link">Типы данных</a>
+                </h3>
+            </li>
+            <li>
+                <h3 class="overlay__subtitle">
+                    <a href="conditions.html" class="overlay__link">Условные
+                        конструкции</a>
+                </h3>
+            </li>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="cycles.html" class="overlay__link">Циклы</a>
+                </h3>
+            </li>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="function.html" class="overlay__link">Функции</a>
+                </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="objects.html" class="overlay__link">Объекты</a>
+            </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="events.html" class="overlay__link">События</a>
+            </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="forms.html" class="overlay__link">Работа с формами</a>
+            </h3>
+            </li>
+        </ul>
+    </div>
+</dialog>
+</body>
+
+</html>

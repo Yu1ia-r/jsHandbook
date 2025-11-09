@@ -1,31 +1,44 @@
 .block-code {
   // font-family: 'AnonymousPro';
   font-size: 20px;
-  font-weight: 600;
   margin-block: 24px;
   // display: flex;
   // flex-direction: row;
   // gap: 15px;
   background-color: #c2bba5 !important;
   border-radius: var(--border-radius);
-  width: fit-content;
+  // width: auto;
   padding: 10px;
 
-//   &__lines {
-//     display: flex;
-//     flex-direction: column;
-//     color: #595454;
-//   }
-
-//   &__comment {
-//     color: #2e5a27;
-//   }
-
-//   &__object {
-// color: #92690a;
-//   }
-
-//   &__number {
-//     color: #136ca3;
-//   }
+  @include mobile {
+    font-size: 16px;
+    margin-block: 10px;
+    width: auto;
+  }
 }
+
+pre {
+  @include mobile {
+    margin-block: 10px;
+
+  }
+}
+
+.hljs-title {
+  color: var(--color-hover) !important;
+
+}
+
+.hljs-number {
+  color: #353977 !important;
+
+}
+.hljs-keyword {
+  color: rgb(121, 133, 55) !important;
+}
+.hljs-string,
+.hljs-literal {
+  color: var(--color-accent) !important;
+}
+
+  

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Функции - учебник js</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <a href="#" class="header__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+                type="button">Меню</button>
+        </div>
+
+    </header>
+    <main class="content">
+        <div class="container">
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="cycles.html">← Циклы</a></div>
+                <div class="links links__right"><a href="objects.html">Объекты →</a></div>
+            </div>
+            <h1>Функции</h1>
+            <h2>Что такое функции?</h2>
+            <p>Условно, функцию можно представить как именованный фрагмент программного кода, который можно вызывать
+                многократно из разных частей программы. Она не просто хранит данные, а выполняет определённую
+                последовательность действий.</p>
+            <h2>Зачем они нужны?</h2>
+            <p>С функциями программы становятся более модульными, а процесс программирования значительно упрощается. Они
+                позволяют избежать дублирования кода, что является ключевым принципом хорошего программирования.
+                Этот принцип называется DRY – Don’t Repeat Yourself (Не повторяйся).
+                Как только вы замечаете в программе повторение (дублирование) кода, это сигнал о том, что архитектуру
+                следует пересмотреть. Повторяющийся фрагмент можно поместить в функцию, а затем вызывать ее в нужных
+                местах программы. Это основная причина введения функций в языки программирования.
+            </p>
+            <h2>Основы создания функций</h2>
+            <p>Чтобы создать функцию в JS, используется ключевое слово <i>function</i>, за которым следует имя функции,
+                параметры в скобках и тело функции в фигурных скобках, где мы пишем, что она должна делать, а также
+                вызов функции по имени:</p>
+            <pre><code class="language-js block-code">function greet() {
+console.log('Hello, world!');
+}
+greet(); //вывод 'hello, world!'
+</code></pre>
+            <h2>Параметры и возвращаемые значения</h2>
+            <p>Функции могут принимать параметры и возвращать значения. Можно передавать сразу несколько параметров
+                через запятую.
+            </p>
+            <pre><code class="language-js block-code">function add(a, b) {
+return a + b;
+}
+const result = add(5, 3);
+console.log(result); //вывод 8
+</code></pre>
+            <p>Здесь функция <i>add</i> принимает два параметра и возращает их сумму. Использование <i>return</i>
+                позволяет вернуть
+                результат работы функции.</p>
+            <h2>Стрелочные функции</h2>
+            <p>Стрелочные функции - это сокращенный синтаксис для создания функций, особенно полезный при использовании
+                функции обратного вызова. Главное отличие - вместо <i>function</i> используется стрелка =>. Еще одна
+                особенность: если внутри функции всего одна строка, можно не писать фигурные скобки и <i>return</i> - JS
+                все
+                поймет сам.</p>
+            <pre><code class="language-js block-code">const subtract = (a, b) => a - b;
+console.log(subtract(10, 3)); //Вывод 7.
+</code></pre>
+            <p>Преимущества стрелочных функций в том, что меньше кода, проще читать, нет лишних скобок, все ясно с
+                первого взгляда. Если тело функции состоит из одного выражения, то оператор <i>return</i> можно
+                опустить. </p>
+            <h2>Функции высшего порядка</h2>
+            <p>Функции, которые принимают другие функции в качестве параметров или возвращают фукции, называют функциями
+                высшего порядка.</p>
+            <pre><code class="language-js block-code">function applyOperation(a, b, operation) {
+return operation(a, b);
+}
+const result1 = applyOperation(5, 10, (x, y) => x + y);
+console.log(result1); //вывод 15
+const result2 = applyOperation(10, 3, (x, y) => x * y);
+console.log(result2); //вывод 30
+</code></pre>
+            <p>Функция <i>applyOperation</i> принимает числа a, b и функцию operation, которая определяет, что делать с
+                этими числами. Это мощный способ сделать код гибким и легко настраиваемым.</p>
+
+            <h2>Рекурсивные функции</h2>
+            <p>Функция, которая вызывает сама себя. Полезна для решения задач, которые можно разделить на более простые
+                задачи.</p>
+            <pre><code class="language-js block-code">function factorial(n) {
+if (n == 1) return 1;
+return n * factorial(n - 1);
+}
+console.log(factorial(5)); //выход 120
+</code></pre>
+            <p>В этом примере функция рекурсивно вызывает сама себя для вычисления факториала числа n.</p>
+
+            <h2>Замыкания</h2>
+            <p>Это мощная функция, которая позволяет функции запомнить свое лексическое окружение даже после того, как
+                она была вызвана.</p>
+            <pre><code class="language-js block-code">function createCounter() {
+let count = 0;
+return function() {
+count++;
+return count;
+};
+}
+const counter = createCounter();
+console.log(counter()); //вывод 1
+console.log(counter()); //вывод 2
+</code></pre>
+            <p>Функция <i>createCounter</i> возвращает внутреннюю функцию, которая имеет доступ к переменной count, даже
+                после завершения выполнения createCounter.</p>
+
+            <h2>Пример сложной функции: каррирование</h2>
+            <p>Каррирование - это техника, когда функция разбивается на несколько функций, каждая из которых принимает
+                один аргумент.</p>
+            <pre><code class="language-js block-code">function multiply(a) {
+return function(b) {
+return function(c) {
+return a * b * c;
+};
+};
+}
+console.log(multiply(2)(3)(4)); //вывод 24
+</code></pre>
+            <p>Такой подход полезен, когда нужно постепенно применять аргументы к функции.</p>
+            <h2>Интересные и полезные примеры с использованием функций.</h2>
+            <h3>1. Функция - генератор случайных цветов в HEX - формате</h3>
+            <pre><code class="language-js block-code">const getRandomColor = () =>
+  `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+// Использование
+console.log(getRandomColor()); // Например: #3da4b1
+</code></pre>
+            <h3>2. Каррированная функция для умножения</h3>
+            <pre><code class="language-js block-code">const multiply = a => b => a * b;
+
+// Использование
+const double = multiply(2);
+const triple = multiply(3);
+
+console.log(double(5));  // 10
+console.log(triple(5));  // 15
+</code></pre>
+            <h3>3. Функция - валидатор email с замыканием</h3>
+            <pre><code class="language-js block-code">const createEmailValidator = () => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return email =>emailRegex.test(email);
+};
+
+// Использование
+const isValidEmail = createEmailValidator();
+console.log(isValidEmail('test@example.com'));  // true
+console.log(isValidEmail('invalid-email'));     // false
+</code></pre>
+            <h3>4. Функция - декоратор для замера времени выполнения</h3>
+            <pre><code class="language-js block-code">const measureTime = (fn) => (...args) => {
+  const start = performance.now();
+  const result = fn(...args);
+  const end = performance.now();
+console.log(`Времявыполнения: ${(end - start).toFixed(2)} мс`);
+  return result;
+};
+
+// Использование
+const slowFunction = measureTime((n) => {
+  let sum = 0;
+  for (let i = 0; i< n; i++) sum += i;
+returnsum;
+});
+
+slowFunction(1000000); // Выведет время выполнения и вернет результат
+
+</code></pre>
+            <h3>5. Функция для создания генератора последовательностей</h3>
+            <pre><code class="language-js block-code">const createSequence = (start = 0, step = 1) => {
+  let current = start;
+  return () => {
+    const value = current;
+    current += step;
+    return value;
+  };
+};
+
+// Использование
+const nextId = createSequence(100, 5);
+console.log(nextId()); // 100
+console.log(nextId()); // 105
+console.log(nextId()); // 110
+</code></pre>
+
+
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="cycles.html">← Циклы</a></div>
+                <div class="links links__right"><a href="objects.html">Объекты →</a></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <a href="#" class="footer__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        </div>
+    </footer>
+    <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
+</body>
+<script>
+    /* === Логика для кнопки "Наверх" === */
+
+    // Ждем, пока вся HTML-структура загрузится
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // 1. Находим нашу кнопку в DOM
+        const scrollTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Убедимся, что кнопка существует на странице
+        if (scrollTopBtn) {
+
+            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
+            window.addEventListener('scroll', () => {
+
+                // Порог, после которого кнопка появится (например, 400px)
+                const scrollThreshold = 400;
+
+                // Проверяем, насколько далеко пользователь прокрутил страницу
+                if (window.scrollY > scrollThreshold) {
+                    // Если прокрутили достаточно далеко - показываем кнопку
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    // Иначе - скрываем
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            // 3. Назначаем обработчик на событие "click" (нажатие)
+            scrollTopBtn.addEventListener('click', () => {
+
+                // Плавно прокручиваем страницу к самому верху
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
+                });
+
+            });
+        }
+    });
+</script>
+<dialog class="overlay container" id="overlay">
+    <form class="overlay__close-button-wrapper" method="dialog">
+        <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                    <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                    <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+                        c-54 0 -77 -4 -81 -14z" />
+                    <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                        -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
+                        75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
+                        0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
+                        0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
+                        -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
+                    <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+                        c-39 1 -74 0 -78 -4z" />
+                    <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                        3 c-55 2 -74 -1 -78 -11z" />
+                </g>
+            </svg>
+            <span class="visually-hidden">close navigation menu</span>
+        </button>
+    </form>
+    <div class="overlay__body">
+        <ul class="overlay__list">
+            <h2 class="overlay__title">Содержание</h2>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                </h3>
+            </li>
+            <li>
+                <h3 class="overlay__subtitle">
+                    <a href="variables.html" class="overlay__link">Переменные</a>
+                </h3>
+            </li>
+            <li>
+                <h3 class="overlay__subtitle">
+                    <a href="typesData.html" class="overlay__link">Типы данных</a>
+                </h3>
+            </li>
+            <li>
+                <h3 class="overlay__subtitle">
+                    <a href="conditions.html" class="overlay__link">Условные
+                        конструкции</a>
+                </h3>
+            </li>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="cycles.html" class="overlay__link">Циклы</a>
+                </h3>
+            </li>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="function.html" class="overlay__link">Функции</a>
+                </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="objects.html" class="overlay__link">Объекты</a>
+            </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="events.html" class="overlay__link">События</a>
+            </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="forms.html" class="overlay__link">Работа с формами</a>
+            </h3>
+            </li>
+        </ul>
+    </div>
+</dialog>
+</body>
+
+</html>

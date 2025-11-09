@@ -1,0 +1,18 @@
+.links__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--margin-block);
+}
+.links__right {
+    margin-inline: auto 0;
+}
+.links {
+   font-family: 'PressStart2P';
+   font-size: 14px;
+//    color: var(--color-accent);
+   background-color: #c2bba5;
+    padding: 7px;
+    border: 3px solid var(--color-accent);
+   
+}

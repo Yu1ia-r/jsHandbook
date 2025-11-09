@@ -126,7 +126,11 @@ body {
     Пригодится в большинстве ситуаций
     (когда, например, нужно будет "прижать" футер к низу сайта)
    */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: 100%;
+  height: 100%;
   /**
     Унифицированный интерлиньяж
    */
@@ -350,6 +354,16 @@ h6 {
   margin-block: 24px !important;
   font-family: "TekturCondensed";
 }
+@media (max-width: 767px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block: 10px !important;
+  }
+}
 
 h1 {
   font-size: clamp(46px, 3.6111111111vw, 52px);
@@ -370,17 +384,28 @@ h4 {
   font-size: clamp(26px, 1.9444444444vw, 28px);
 }
 
+@media (max-width: 767px) {
+  p {
+    margin-block: 10px;
+  }
+}
+
 .content {
+  margin-top: 205px;
   margin-bottom: var(--margin-block);
 }
 
 .header {
+  top: 0;
+  width: 100%;
+  position: fixed;
   font-family: "PressStart2P";
   padding-top: 60px;
   padding-bottom: 30px;
   margin-bottom: var(--margin-block);
   padding-right: 13px;
-  background-color: #c2bba5;
+  background: #c2bba5;
+  background: linear-gradient(180deg, rgb(194, 187, 165) 60%, rgb(171, 165, 147) 100%);
 }
 .header__inner {
   display: flex;
@@ -405,6 +430,11 @@ h4 {
 
 .logo {
   font-size: 30px;
+}
+@media (max-width: 767px) {
+  .logo {
+    font-size: 24px;
+  }
 }
 
 .logo {
@@ -438,7 +468,37 @@ h4 {
   border: var(--border);
 }
 
+#scrollToTopBtn {
+  font-family: "PressStart2P";
+  position: fixed;
+  top: auto;
+  right: 43px;
+  bottom: 20px;
+  font-size: 24px;
+  color: var(--color-accent);
+  opacity: 0;
+  visibility: hidden;
+}
+#scrollToTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--transition-duration), visibility var(--transition-duration);
+}
+#scrollToTopBtn:hover {
+  color: var(--color-light);
+  border-color: var(--color-light);
+  background-color: var(--color-accent);
+  transition: border-color var(--transition-duration), color var(--transition-duration), background-color var(--transition-duration);
+}
+#scrollToTopBtn:focus-visible {
+  outline: none;
+  background-color: rgba(126, 0, 21, 0.384);
+  transition: background-color var(--transition-duration);
+}
+
 .footer {
+  width: 100%;
+  height: 120px;
   padding-block: 30px;
   background-color: #cec7b2;
 }
@@ -465,7 +525,6 @@ h4 {
 .overlay {
   position: fixed;
   top: 0;
-  left: 0;
   bottom: auto;
   width: 100%;
   border: none;
@@ -516,12 +575,40 @@ h4 {
 
 .block-code {
   font-size: 20px;
-  font-weight: 600;
   margin-block: 24px;
   background-color: #c2bba5 !important;
   border-radius: var(--border-radius);
-  width: fit-content;
   padding: 10px;
+}
+@media (max-width: 767px) {
+  .block-code {
+    font-size: 16px;
+    margin-block: 10px;
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  pre {
+    margin-block: 10px;
+  }
+}
+
+.hljs-title {
+  color: var(--color-hover) !important;
+}
+
+.hljs-number {
+  color: #353977 !important;
+}
+
+.hljs-keyword {
+  color: rgb(121, 133, 55) !important;
+}
+
+.hljs-string,
+.hljs-literal {
+  color: var(--color-accent) !important;
 }
 
 .text__list {
@@ -529,4 +616,34 @@ h4 {
 }
 .text__list li {
   padding-left: 20px;
+}
+.text__link {
+  text-decoration: underline;
+}
+
+.links__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--margin-block);
+}
+
+.links__right {
+  margin-inline: auto 0;
+}
+
+.links {
+  font-family: "PressStart2P";
+  font-size: 14px;
+  background-color: #c2bba5;
+  padding: 7px;
+  border: 3px solid var(--color-accent);
+}
+
+.iframe {
+  background-color: #c2bba5;
+  border-radius: var(--border-radius);
+  padding: 10px;
+  font-size: 20px;
+  margin-block: 24px;
 }/*# sourceMappingURL=styles.css.map */

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Работа с формами - учебник js</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/buttonScroll.js"></script>
+    <script src="js/buttonDropdown.js"></script>
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
@@ -33,25 +37,48 @@
             </div>
 
             <h1>Работа с формами</h1>
-            <p>Формы являются ключевым элементом для сбора пользовательских данных, и JavaScript предоставляет мощные инструменты для работы с ними. Существуют специальные события, которые позволяют реагировать на действия пользователя в формах.</p>
+            <p>Формы являются ключевым элементом для сбора пользовательских данных, и JavaScript предоставляет мощные
+                инструменты для работы с ними. Существуют специальные события, которые позволяют реагировать на действия
+                пользователя в формах.</p>
 
             <h2>Главные события форм</h2>
             <ul class="text__list">
-                <li><b>submit:</b> Это событие срабатывает при попытке отправки формы (например, при нажатии на <i>&lt;button type="submit"&gt;</i>). Оно идеально подходит для финальной проверки данных. Для отмены стандартного поведения браузера (перезагрузки страницы) используется метод <i>event.preventDefault()</i>.</li>
-                <li><b>change:</b> Это событие срабатывает, когда значение элемента формы изменилось, и этот элемент потерял фокус. Оно очень полезно для валидации отдельных полей, как только пользователь закончил ввод.</li>
-                <li><b>focus и blur:</b> Эти события срабатывают, когда элемент получает и теряет фокус соответственно. Они идеально подходят для предоставления мгновенной обратной связи, например, для изменения стиля поля или показа подсказки.</li>
+                <li><b>submit:</b> Это событие срабатывает при попытке отправки формы (например, при нажатии на
+                    <i>&lt;button type="submit"&gt;</i>). Оно идеально подходит для финальной проверки данных. Для
+                    отмены стандартного поведения браузера (перезагрузки страницы) используется метод
+                    <i>event.preventDefault()</i>.
+                </li>
+                <li><b>change:</b> Это событие срабатывает, когда значение элемента формы изменилось, и этот элемент
+                    потерял фокус. Оно очень полезно для валидации отдельных полей, как только пользователь закончил
+                    ввод.</li>
+                <li><b>focus и blur:</b> Эти события срабатывают, когда элемент получает и теряет фокус соответственно.
+                    Они идеально подходят для предоставления мгновенной обратной связи, например, для изменения стиля
+                    поля или показа подсказки.</li>
             </ul>
-            <p>Опытные разработчики используют эти события в сочетании. Например, <i>focus</i> и <i>blur</i> для визуальных эффектов (подсветка поля), <i>change</i> для быстрой валидации отдельных полей, и <i>submit</i> для окончательной валидации всей формы.</p>
-            
+            <p>Опытные разработчики используют эти события в сочетании. Например, <i>focus</i> и <i>blur</i> для
+                визуальных эффектов (подсветка поля), <i>change</i> для быстрой валидации отдельных полей, и
+                <i>submit</i> для окончательной валидации всей формы.
+            </p>
+
             <div class="links__wrapper">
                 <div class="links links__left"><a href="events.html">← События</a></div>
-            
+
             </div>
-            <div class="iframe">
+            <!-- <div class="iframe">
                 <iframe c src="exForms.html" frameborder="0"></iframe>
-            <a href="exForms.html">Открыть демо в номой вкладке</a>
+                <a href="exForms.html">Открыть демо в номой вкладке</a>
             </div>
-            
+
+            <div class="dropdown">
+                <div class="dropdown-arrow">
+                    <button class="dropdown-btn" type="button">Показать решение</button>
+                </div>
+                <div class="dropdown__content visually-hidden">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum incidunt
+                    facilis voluptatibus pariatur at impedit, repudiandae, tempora rem unde vero eligendi ab maiores
+                    voluptate iusto assumenda, repellendus quam beatae accusantium!</div>
+
+            </div> -->
+
         </div>
     </main>
     <footer class="footer">
@@ -64,125 +91,85 @@
         </div>
     </footer>
     <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
-</body>
-<script>
-    /* === Логика для кнопки "Наверх" === */
 
-    // Ждем, пока вся HTML-структура загрузится
-    document.addEventListener("DOMContentLoaded", () => {
 
-        // 1. Находим нашу кнопку в DOM
-        const scrollTopBtn = document.getElementById('scrollToTopBtn');
-
-        // Убедимся, что кнопка существует на странице
-        if (scrollTopBtn) {
-
-            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
-            window.addEventListener('scroll', () => {
-
-                // Порог, после которого кнопка появится (например, 400px)
-                const scrollThreshold = 400;
-
-                // Проверяем, насколько далеко пользователь прокрутил страницу
-                if (window.scrollY > scrollThreshold) {
-                    // Если прокрутили достаточно далеко - показываем кнопку
-                    scrollTopBtn.classList.add('show');
-                } else {
-                    // Иначе - скрываем
-                    scrollTopBtn.classList.remove('show');
-                }
-            });
-
-            // 3. Назначаем обработчик на событие "click" (нажатие)
-            scrollTopBtn.addEventListener('click', () => {
-
-                // Плавно прокручиваем страницу к самому верху
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
-                });
-
-            });
-        }
-    });
-</script>
-    <dialog class="overlay container" id="overlay">
-        <form class="overlay__close-button-wrapper" method="dialog">
-            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
-                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
-                        stroke="none">
-                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
-                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+<dialog class="overlay container" id="overlay">
+    <form class="overlay__close-button-wrapper" method="dialog">
+        <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                    <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                    <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
                         c-54 0 -77 -4 -81 -14z" />
-                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                    <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
                         -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
                         75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
                         0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
                         0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
                         -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
-                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 7KA-70 3
+                    <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 7KA-70 3
                         c-39 1 -74 0 -78 -4z" />
-                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                    <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
                         3 c-55 2 -74 -1 -78 -11z" />
-                    </g>
-                </svg>
-                <span class="visually-hidden">close navigation menu</span>
-            </button>
-        </form>
-        <div class="overlay__body">
-            <ul class="overlay__list">
-                <h2 class="overlay__title">Содержание</h2>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="variables.html" class="overlay__link">Переменные</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="typesData.html" class="overlay__link">Типы данных</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="conditions.html" class="overlay__link">Условные
-                            конструкции</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="cycles.html" class="overlay__link">Циклы</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="function.html" class="overlay__link">Функции</a>
-                    </h3>
-                </li>
-                <li class="overlay__item"></li>
+                </g>
+            </svg>
+            <span class="visually-hidden">close navigation menu</span>
+        </button>
+    </form>
+    <div class="overlay__body">
+        <ul class="overlay__list">
+            <h2 class="overlay__title">Содержание</h2>
+            <li class="overlay__item">
                 <h3 class="overlay__subtitle">
-                    <a href="objects.html" class="overlay__link">Объекты</a>
+                    <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
                 </h3>
-                </li>
-                <li class="overlay__item"></li>
+            </li>
+            <li>
                 <h3 class="overlay__subtitle">
-                    <a href="events.html" class="overlay__link">События</a>
+                    <a href="variables.html" class="overlay__link">Переменные</a>
                 </h3>
-                </li>
-                <li class="overlay__item"></li>
+            </li>
+            <li>
                 <h3 class="overlay__subtitle">
-                    <a href="forms.html" class="overlay__link">Работа с формами</a>
+                    <a href="typesData.html" class="overlay__link">Типы данных</a>
                 </h3>
-                </li>
-            </ul>
-        </div>
-    </dialog>
+            </li>
+            <li>
+                <h3 class="overlay__subtitle">
+                    <a href="conditions.html" class="overlay__link">Условные
+                        конструкции</a>
+                </h3>
+            </li>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="cycles.html" class="overlay__link">Циклы</a>
+                </h3>
+            </li>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="function.html" class="overlay__link">Функции</a>
+                </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="objects.html" class="overlay__link">Объекты</a>
+            </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="events.html" class="overlay__link">События</a>
+            </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="forms.html" class="overlay__link">Работа с формами</a>
+            </h3>
+            </li>
+        </ul>
+    </div>
+</dialog>
+
 </body>
 
 </html>

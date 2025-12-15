@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Функции - учебник js</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/buttonScroll.js"></script>
+    <script src="js/buttonDropdown.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
@@ -199,6 +202,82 @@ console.log(nextId()); // 110
 </code></pre>
 
 
+            <h2>Задания для самостоятельной работы:</h2>
+            <article>
+                <p>1. Напишите функцию, которая принимает массив целых чисел и возвращает сумму всех чисел, кратных 3.
+                </p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">function sumMultipleofThree(arr) {
+let sum = 0;
+for (let i = 0; i &lt; arr.length; i++) {
+if (arr[i] % 3 == 0) {
+sum += arr[i];
+}
+}
+returnsum;
+}
+</code></pre>
+
+                    </div>
+
+                </div>
+            </article>
+
+            <article>
+                <p>2. Напишите функцию, которая определяет, является ли переданная строка палиндромом. Палиндромом
+                    считается строка, которая читается одинаково как слева направо, так и справа налево.
+                </p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">function isPalindrome(str) {
+const reversedStr = str.split(' ').reverse().join(' ');
+return str == reversedStr;
+}
+console.log(isPalindrome('level')); //вернет true
+</code></pre>
+
+                    </div>
+
+                </div>
+            </article>
+
+             <article>
+                <p>3. Напишите функцию, которая возвращает случайное сообщение из заранее заданного списка.
+Список сообщений:
+«Ты молодец!», 
+«Продолжай в том же духе!, 
+«Отличная работа!», 
+«Ты на верном пути!».
+</p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">const messages = [
+'Ты молодец!',
+'Продолжай в том же духе!',
+'Отличная работа!',
+'Ты на верном пути!'
+        ];
+      const index = Math.floor(Math.random() * messages.length); //выбор случайного индекса
+      return messages[index]; //возврат выбранного сообщения
+}
+сonsole.log(generateRandomMessage());
+</code></pre>
+
+                    </div>
+
+                </div>
+            </article>
+
+
+
             <div class="links__wrapper">
                 <div class="links links__left"><a href="cycles.html">← Циклы</a></div>
                 <div class="links links__right"><a href="objects.html">Объекты →</a></div>
@@ -215,124 +294,85 @@ console.log(nextId()); // 110
         </div>
     </footer>
     <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
-</body>
-<script>
-    /* === Логика для кнопки "Наверх" === */
 
-    // Ждем, пока вся HTML-структура загрузится
-    document.addEventListener("DOMContentLoaded", () => {
 
-        // 1. Находим нашу кнопку в DOM
-        const scrollTopBtn = document.getElementById('scrollToTopBtn');
-
-        // Убедимся, что кнопка существует на странице
-        if (scrollTopBtn) {
-
-            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
-            window.addEventListener('scroll', () => {
-
-                // Порог, после которого кнопка появится (например, 400px)
-                const scrollThreshold = 400;
-
-                // Проверяем, насколько далеко пользователь прокрутил страницу
-                if (window.scrollY > scrollThreshold) {
-                    // Если прокрутили достаточно далеко - показываем кнопку
-                    scrollTopBtn.classList.add('show');
-                } else {
-                    // Иначе - скрываем
-                    scrollTopBtn.classList.remove('show');
-                }
-            });
-
-            // 3. Назначаем обработчик на событие "click" (нажатие)
-            scrollTopBtn.addEventListener('click', () => {
-
-                // Плавно прокручиваем страницу к самому верху
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
-                });
-
-            });
-        }
-    });
-</script>
-<dialog class="overlay container" id="overlay">
-    <form class="overlay__close-button-wrapper" method="dialog">
-        <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
-                viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
-                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
-                    <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
-                    <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+    <dialog class="overlay container" id="overlay">
+        <form class="overlay__close-button-wrapper" method="dialog">
+            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
                         c-54 0 -77 -4 -81 -14z" />
-                    <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
                         -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
                         75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
                         0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
                         0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
                         -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
-                    <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
                         c-39 1 -74 0 -78 -4z" />
-                    <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
                         3 c-55 2 -74 -1 -78 -11z" />
-                </g>
-            </svg>
-            <span class="visually-hidden">close navigation menu</span>
-        </button>
-    </form>
-    <div class="overlay__body">
-        <ul class="overlay__list">
-            <h2 class="overlay__title">Содержание</h2>
-            <li class="overlay__item">
+                    </g>
+                </svg>
+                <span class="visually-hidden">close navigation menu</span>
+            </button>
+        </form>
+        <div class="overlay__body">
+            <ul class="overlay__list">
+                <h2 class="overlay__title">Содержание</h2>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="variables.html" class="overlay__link">Переменные</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="typesData.html" class="overlay__link">Типы данных</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="conditions.html" class="overlay__link">Условные
+                            конструкции</a>
+                    </h3>
+                </li>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="cycles.html" class="overlay__link">Циклы</a>
+                    </h3>
+                </li>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="function.html" class="overlay__link">Функции</a>
+                    </h3>
+                </li>
+                <li class="overlay__item"></li>
                 <h3 class="overlay__subtitle">
-                    <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                    <a href="objects.html" class="overlay__link">Объекты</a>
                 </h3>
-            </li>
-            <li>
+                </li>
+                <li class="overlay__item"></li>
                 <h3 class="overlay__subtitle">
-                    <a href="variables.html" class="overlay__link">Переменные</a>
+                    <a href="events.html" class="overlay__link">События</a>
                 </h3>
-            </li>
-            <li>
+                </li>
+                <li class="overlay__item"></li>
                 <h3 class="overlay__subtitle">
-                    <a href="typesData.html" class="overlay__link">Типы данных</a>
+                    <a href="forms.html" class="overlay__link">Работа с формами</a>
                 </h3>
-            </li>
-            <li>
-                <h3 class="overlay__subtitle">
-                    <a href="conditions.html" class="overlay__link">Условные
-                        конструкции</a>
-                </h3>
-            </li>
-            <li class="overlay__item">
-                <h3 class="overlay__subtitle">
-                    <a href="cycles.html" class="overlay__link">Циклы</a>
-                </h3>
-            </li>
-            <li class="overlay__item">
-                <h3 class="overlay__subtitle">
-                    <a href="function.html" class="overlay__link">Функции</a>
-                </h3>
-            </li>
-            <li class="overlay__item"></li>
-            <h3 class="overlay__subtitle">
-                <a href="objects.html" class="overlay__link">Объекты</a>
-            </h3>
-            </li>
-            <li class="overlay__item"></li>
-            <h3 class="overlay__subtitle">
-                <a href="events.html" class="overlay__link">События</a>
-            </h3>
-            </li>
-            <li class="overlay__item"></li>
-            <h3 class="overlay__subtitle">
-                <a href="forms.html" class="overlay__link">Работа с формами</a>
-            </h3>
-            </li>
-        </ul>
-    </div>
-</dialog>
+                </li>
+            </ul>
+        </div>
+    </dialog>
 </body>
 
 </html>

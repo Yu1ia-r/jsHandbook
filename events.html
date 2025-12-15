@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>События - учебник js</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/buttonScroll.js"></script>
+    <script src="js/buttonDropdown.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
@@ -164,7 +167,124 @@ alert("Кнопка нажата!");
                 <i>event.target</i> будет указывать на иконку. Для решения этой проблемы используйте метод
                 <i>event.target.closest()</i>, который ищет ближайшего родителя, соответствующего селектору.
             </p>
+ <h2>Задания для самостоятельной работы:</h2>
+            <article>
+                <p>1. Создайте кнопку, при нажатии на которую текст на странице меняется на «Привет, DOM!».</p>
+                <div class="dropdown">
 
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Задание 1: Смена текста&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;p id="myParagraph"&gt;Этот текст скоро изменится. &lt;/p&gt;
+    &lt;button id="changeTextBtn"&gt;Нажми меня&lt;/button&gt;
+
+    &lt;script&gt;
+        // 1. Находим элементы на странице
+        const paragraph = document.getElementById('myParagraph');
+        const button = document.getElementById('changeTextBtn');
+
+        // 2. Добавляем "слушателя" события клика на кнопку
+        button.addEventListener('click', function() {
+            // 3. При клике меняем текстовое содержимое параграфа
+            paragraph.textContent = 'Привет, DOM!';
+        });
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+                    </div>
+
+                </div>
+            </article>
+
+            <article>
+                <p>2. Напишите скрипт, который создаёт список ul, и при нажатии на кнопку добавляет в него новые пункты. </p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt; Задание 2: Динамический список &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;button id="addItemBtn"&gt;Добавить пункт&lt;/button&gt;
+    &lt;ul id="myList"&gt;
+        &lt;!-- Сюда будут добавляться новые пункты --&gt;
+    &lt;/ul&gt;
+
+    &lt;script&gt;
+        // 1. Находим кнопку и список
+        const button = document.getElementById('addItemBtn');
+        const list = document.getElementById('myList');
+        let itemCount = 1; // Счетчик для нумерации пунктов
+
+        // 2. Добавляем слушателя на кнопку
+        button.addEventListener('click', function() {
+            // 3. Создаем новый элемент списка li
+            const newItem = document.createElement('li');
+
+            // 4. Добавляем в него текст
+            newItem.textContent = 'Новый пункт ' + itemCount;
+
+            // 5. Добавляем новый элемент в конец списка ul
+            list.appendChild(newItem);
+
+            // Увеличиваем счетчик
+            itemCount++;
+        });
+    &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+                    </div>
+
+                </div>
+            </article>
+
+             <!-- <article>
+                <p>3. Напишите функцию, которая возвращает случайное сообщение из заранее заданного списка.
+Список сообщений:
+«Ты молодец!», 
+«Продолжай в том же духе!, 
+«Отличная работа!», 
+«Ты на верном пути!».
+</p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">const messages = [
+'Ты молодец!',
+'Продолжай в том же духе!',
+'Отличная работа!',
+'Ты на верном пути!'
+        ];
+      const index = Math.floor(Math.random() * messages.length); //выбор случайного индекса
+      return messages[index]; //возврат выбранного сообщения
+}
+сonsole.log(generateRandomMessage());
+</code></pre>
+
+                    </div>
+
+                </div>
+            </article> -->
 
             <div class="links__wrapper">
                 <div class="links links__left"><a href="objects.html">← Объекты</a></div>
@@ -183,47 +303,7 @@ alert("Кнопка нажата!");
     </footer>
     <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
 </body>
-<script>
-    /* === Логика для кнопки "Наверх" === */
 
-    // Ждем, пока вся HTML-структура загрузится
-    document.addEventListener("DOMContentLoaded", () => {
-
-        // 1. Находим нашу кнопку в DOM
-        const scrollTopBtn = document.getElementById('scrollToTopBtn');
-
-        // Убедимся, что кнопка существует на странице
-        if (scrollTopBtn) {
-
-            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
-            window.addEventListener('scroll', () => {
-
-                // Порог, после которого кнопка появится (например, 400px)
-                const scrollThreshold = 400;
-
-                // Проверяем, насколько далеко пользователь прокрутил страницу
-                if (window.scrollY > scrollThreshold) {
-                    // Если прокрутили достаточно далеко - показываем кнопку
-                    scrollTopBtn.classList.add('show');
-                } else {
-                    // Иначе - скрываем
-                    scrollTopBtn.classList.remove('show');
-                }
-            });
-
-            // 3. Назначаем обработчик на событие "click" (нажатие)
-            scrollTopBtn.addEventListener('click', () => {
-
-                // Плавно прокручиваем страницу к самому верху
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
-                });
-
-            });
-        }
-    });
-</script>
 <dialog class="overlay container" id="overlay">
     <form class="overlay__close-button-wrapper" method="dialog">
         <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">

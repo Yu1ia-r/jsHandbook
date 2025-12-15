@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Циклы - учебник js</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/buttonScroll.js"></script>
+    <script src="js/buttonDropdown.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
@@ -218,47 +221,7 @@ console.log(row);
     </footer>
     <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
 </body>
-<script>
-    /* === Логика для кнопки "Наверх" === */
 
-    // Ждем, пока вся HTML-структура загрузится
-    document.addEventListener("DOMContentLoaded", () => {
-
-        // 1. Находим нашу кнопку в DOM
-        const scrollTopBtn = document.getElementById('scrollToTopBtn');
-
-        // Убедимся, что кнопка существует на странице
-        if (scrollTopBtn) {
-
-            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
-            window.addEventListener('scroll', () => {
-
-                // Порог, после которого кнопка появится (например, 400px)
-                const scrollThreshold = 400;
-
-                // Проверяем, насколько далеко пользователь прокрутил страницу
-                if (window.scrollY > scrollThreshold) {
-                    // Если прокрутили достаточно далеко - показываем кнопку
-                    scrollTopBtn.classList.add('show');
-                } else {
-                    // Иначе - скрываем
-                    scrollTopBtn.classList.remove('show');
-                }
-            });
-
-            // 3. Назначаем обработчик на событие "click" (нажатие)
-            scrollTopBtn.addEventListener('click', () => {
-
-                // Плавно прокручиваем страницу к самому верху
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
-                });
-
-            });
-        }
-    });
-</script>
     <dialog class="overlay container" id="overlay">
         <form class="overlay__close-button-wrapper" method="dialog">
             <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">

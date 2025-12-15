@@ -2,44 +2,47 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Объекты - учебник js</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Объекты - учебник js</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="js/buttonScroll.js"></script>
+  <script src="js/buttonDropdown.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
-    <script>hljs.highlightAll();</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 
 <body>
-    <header class="header">
-        <div class="header__inner container">
-            <a href="#" class="header__logo logo">
-                <img src="" alt="" class="logo__image" loading="lazy">
-                <span>Учебник JavaScript</span>
-            </a>
-            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
-                type="button">Меню</button>
-        </div>
+  <header class="header">
+    <div class="header__inner container">
+      <a href="#" class="header__logo logo">
+        <img src="" alt="" class="logo__image" loading="lazy">
+        <span>Учебник JavaScript</span>
+      </a>
+      <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+        type="button">Меню</button>
+    </div>
 
-    </header>
-    <main class="content">
-        <div class="container">
-            <div class="links__wrapper">
-                <div class="links links__left"><a href="function.html">← Функции</a></div>
-                <div class="links links__right"><a href="events.html">События →</a></div>
-            </div>
+  </header>
+  <main class="content">
+    <div class="container">
+      <div class="links__wrapper">
+        <div class="links links__left"><a href="function.html">← Функции</a></div>
+        <div class="links links__right"><a href="events.html">События →</a></div>
+      </div>
 
-            <h1>Объекты</h1>
+      <h1>Объекты</h1>
 
-            <h2>Что такое объекты?</h2>
-            <p>Объекты в JavaScript — это именованные коллекции свойств, где каждое свойство состоит из ключа (имени) и
-                значения. Если функции можно представить как действия, то объекты — это сущности, которые хранят данные
-                и могут иметь поведение через методы.</p>
-            <p>Пример объекта:</p>
-            <pre><code class="language-js block-code">const person = {
+      <h2>Что такое объекты?</h2>
+      <p>Объекты в JavaScript — это именованные коллекции свойств, где каждое свойство состоит из ключа (имени) и
+        значения. Если функции можно представить как действия, то объекты — это сущности, которые хранят данные
+        и могут иметь поведение через методы.</p>
+      <p>Пример объекта:</p>
+      <pre><code class="language-js block-code">const person = {
   name: "Иван",
   age: 25,
   greet: function() {
@@ -51,47 +54,47 @@ console.log(person.name); // "Иван"
 person.greet(); // "Привет, меня зовут Иван"
 </code></pre>
 
-            <h2>Зачем нужны объекты?</h2>
-            <p>С помощью объектов программы становятся более структурированными.
-                Объекты позволяют:
-            <ol>
-                <li>объединять связанные данные</li>
-                <li>описывать сущности реального мира</li>
-                <li>хранить как данные, так и функции для работы с ними</li>
-            </ol>
-            Использование объектов помогает писать чистый и понятный код, где данные логически сгруппированы.</p>
+      <h2>Зачем нужны объекты?</h2>
+      <p>С помощью объектов программы становятся более структурированными.
+        Объекты позволяют:
+      <ol>
+        <li>объединять связанные данные</li>
+        <li>описывать сущности реального мира</li>
+        <li>хранить как данные, так и функции для работы с ними</li>
+      </ol>
+      Использование объектов помогает писать чистый и понятный код, где данные логически сгруппированы.</p>
 
-<h2>Основы создания объектов</h2>
-<p>Создать объект в JS можно несколькими способами:</p>
-<h3>1. Литерал объекта (самый удобный):</h3>
-<pre><code class="language-js block-code">constcar = {
+      <h2>Основы создания объектов</h2>
+      <p>Создать объект в JS можно несколькими способами:</p>
+      <h3>1. Литерал объекта (самый удобный):</h3>
+      <pre><code class="language-js block-code">constcar = {
 brand: "Toyota",
 year: 2020
 };
 </code></pre>
-<h3>2. Черезконструктор Object:</h3>
-<pre><code class="language-js block-code">const car = new Object();
+      <h3>2. Черезконструктор Object:</h3>
+      <pre><code class="language-js block-code">const car = new Object();
 car.brand = "Toyota";
 car.year = 2020;
 </code></pre>
-<h3>3. Через функцию-конструктор:</h3>
-<pre><code class="language-js block-code">function Person(name, age) {
+      <h3>3. Через функцию-конструктор:</h3>
+      <pre><code class="language-js block-code">function Person(name, age) {
   this.name = name;
 this.age = age;
 }
 const user = new Person("Анна", 22);
 console.log(user.name); // "Анна"
 </code></pre>
-<h2>Свойства и доступ к ним</h2>
-<p>Свойства — это данные, хранящиеся в объекте.
-Доступ к ним возможен двумя способами:
-</p>
-<pre><code class="language-js block-code">console.log(car.brand);     // "Toyota" (через точку)
+      <h2>Свойства и доступ к ним</h2>
+      <p>Свойства — это данные, хранящиеся в объекте.
+        Доступ к ним возможен двумя способами:
+      </p>
+      <pre><code class="language-js block-code">console.log(car.brand);     // "Toyota" (через точку)
 console.log(car["year"]);   // 2020 (через строку-ключ)
 </code></pre>
-<h2>Методы объектов</h2>
-<p>Метод — это функция, которая является свойством объекта.</p>
-<pre><code class="language-js block-code">const calculator = {
+      <h2>Методы объектов</h2>
+      <p>Метод — это функция, которая является свойством объекта.</p>
+      <pre><code class="language-js block-code">const calculator = {
 add(a, b) {
     return a + b;
   },
@@ -102,9 +105,9 @@ subtract(a, b) {
 
 console.log(calculator.add(5, 3)); // 8
 </code></pre>
-<h2>Вложенные объекты</h2>
-<p>Объект может содержать другие объекты:</p>
-<pre><code class="language-js block-code">const student = {
+      <h2>Вложенные объекты</h2>
+      <p>Объект может содержать другие объекты:</p>
+      <pre><code class="language-js block-code">const student = {
   name: "Оля",
   marks: {
     math: 5,
@@ -113,18 +116,18 @@ english: 4
 };
 console.log(student.marks.math); // 5
 </code></pre>
-<h2>Перебор свойств</h2>
-<p>Для перебора всех свойств объекта используют цикл for...in:</p>
-<pre><code class="language-js block-code">const user = { name: "Ира", age: 30 };
+      <h2>Перебор свойств</h2>
+      <p>Для перебора всех свойств объекта используют цикл for...in:</p>
+      <pre><code class="language-js block-code">const user = { name: "Ира", age: 30 };
 for (let key in user) {
 console.log(key + ": " + user[key]);
 }
 // name: Ира
 // age: 30
 </code></pre>
-<h2>Ключевое слово this</h2>
-<p>Внутри методов объекта this указывает на сам объект.</p>
-<pre><code class="language-js block-code">const person = {
+      <h2>Ключевое слово this</h2>
+      <p>Внутри методов объекта this указывает на сам объект.</p>
+      <pre><code class="language-js block-code">const person = {
   name: "Максим",
 greet() {
 console.log("Привет, я " + this.name);
@@ -132,20 +135,20 @@ console.log("Привет, я " + this.name);
 };
 person.greet(); // "Привет, я Максим"
 </code></pre>
-<h2>Создание копий объектов</h2>
-<p>Важно помнить, что при присвоении копируется ссылка на объект, а не сам объект.</p>
-<pre><code class="language-js block-code">const obj1 = { a: 1 };
+      <h2>Создание копий объектов</h2>
+      <p>Важно помнить, что при присвоении копируется ссылка на объект, а не сам объект.</p>
+      <pre><code class="language-js block-code">const obj1 = { a: 1 };
 const obj2 = obj1;
 obj2.a = 5;
 console.log(obj1.a); // 5
 </code></pre>
-<p>Чтобы создать независимую копию, используют:</p>
-<pre><code class="language-js block-code">const copy1 = Object.assign({}, obj1);
+      <p>Чтобы создать независимую копию, используют:</p>
+      <pre><code class="language-js block-code">const copy1 = Object.assign({}, obj1);
 const copy2 = { ...obj1 };
 </code></pre>
-<h2>Примеры полезных объектов</h2>
-<h3>1.	Счётчик с методами:</h3>
-<pre><code class="language-js block-code">constcounter = {
+      <h2>Примеры полезных объектов</h2>
+      <h3>1. Счётчик с методами:</h3>
+      <pre><code class="language-js block-code">constcounter = {
 value: 0,
 increment() {
 this.value++;
@@ -157,8 +160,8 @@ this.value--;
 counter.increment();
 console.log(counter.value); // 1
 </code></pre>
-<h3>2.	Фабрика для создания пользователей:</h3>
-<pre><code class="language-js block-code">functioncreateUser(name, age) {
+      <h3>2. Фабрика для создания пользователей:</h3>
+      <pre><code class="language-js block-code">functioncreateUser(name, age) {
 return {
 name,
 age,
@@ -170,16 +173,16 @@ console.log(`Привет, я ${this.name}, мне ${this.age} лет.`);
 const user1 = createUser("Анна", 22);
 user1.greet(); // "Привет, я Анна, мне 22 лет."
 </code></pre>
-<h3>3.	Хранение настроек:</h3>
-<pre><code class="language-js block-code">constsettings = {
+      <h3>3. Хранение настроек:</h3>
+      <pre><code class="language-js block-code">constsettings = {
 theme: "dark",
 language: "ru",
 notifications: true
 };
 </code></pre>
-<h2>Интересные и полезные примеры с использованием объектов</h2>
-<h3>1.	Корзина товаров:</h3>  
-<pre><code class="language-js block-code">constcart = {
+      <h2>Интересные и полезные примеры с использованием объектов</h2>
+      <h3>1. Корзина товаров:</h3>
+      <pre><code class="language-js block-code">constcart = {
 items: [],
 addItem(item) {
 this.items.push(item);
@@ -192,8 +195,8 @@ cart.addItem("Яблоко");
 cart.addItem("Банан");
 cart.showItems(); // ["Яблоко", "Банан"]
 </code></pre>
-<h3>2.	Калькулятор с объектом операций:</h3>
-<pre><code class="language-js block-code">constcalculator = {
+      <h3>2. Калькулятор с объектом операций:</h3>
+      <pre><code class="language-js block-code">constcalculator = {
 operations: {
     "+": (a, b) => a + b,
     "-": (a, b) => a - b,
@@ -205,8 +208,8 @@ calculate(a, b, op) {
 };
 console.log(calculator.calculate(5, 3, "+")); // 8
 </code></pre>
-<h3>3.	Счётчик с замыканием через объект:</h3>
-<pre><code class="language-js block-code">function createCounter() {
+      <h3>3. Счётчик с замыканием через объект:</h3>
+      <pre><code class="language-js block-code">function createCounter() {
   let value = 0;
   return {
 increment() {
@@ -224,145 +227,212 @@ console.log(counter1.increment()); // 1
 console.log(counter1.increment()); // 2
 </code></pre>
 
+      <h2>Задания для самостоятельной работы:</h2>
+      <article>
+        <p>1. 1. Создайте объект book, который хранит название, автора и год издания. Добавьте метод info(), который
+          выводит строку:
+          Книга <название>, автор <автор>, издана в <год>.
+        </p>
+        <div class="dropdown">
 
+          <button class="dropdown-btn button" type="button">Показать решение</button>
 
+          <div class="dropdown__content visually-hidden">
+            <pre><code class="language-js block-code">const book = {
+  title: "Война и мир",
+  author: "Лев Толстой",
+  year: 1869,
 
-            <div class="links__wrapper">
-                <div class="links links__left"><a href="function.html">← Функции</a></div>
-                <div class="links links__right"><a href="events.html">События →</a></div>
-            </div>
+  // Метод для вывода информации о книге
+  info: function() {
+    console.log(`Книга "${this.title}", автор ${this.author}, издана в ${this.year} году.`);
+  }
+};
+
+// Проверка работы метода
+book.info(); // Выведет: Книга "Война и мир", автор Лев Толстой, издана в 1869 году.
+</code></pre>
+
+          </div>
+
         </div>
-    </main>
-    <footer class="footer">
-        <div class="footer__inner container">
-            <a href="#" class="footer__logo logo">
-                <img src="" alt="" class="logo__image" loading="lazy">
-                <span>Учебник JavaScript</span>
-            </a>
-            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+      </article>
+
+      <article>
+        <p>2. 2. Создайте объект bankAccount с полем balance и методами deposit(amount) и withdraw(amount).</p>
+        <div class="dropdown">
+
+          <button class="dropdown-btn button" type="button">Показать решение</button>
+          <div class="dropdown__content visually-hidden">
+            <pre><code class="language-js block-code">const bankAccount = {
+  balance: 0, // Начальный баланс
+
+  // Метод для пополнения счета
+  deposit: function(amount) {
+    if (amount > 0) {
+      this.balance += amount;
+      console.log(`Счет пополнен на ${amount}. Текущий баланс: ${this.balance}.`);
+    } else {
+      console.log("Сумма пополнения должна быть положительной.");
+    }
+  },
+
+  // Метод для снятия средств
+  withdraw: function(amount) {
+    if (amount > this.balance) {
+      console.log(`Недостаточно средств. Ваш баланс: ${this.balance}.`);
+    } else if (amount <= 0) {
+      console.log("Сумма для снятия должна быть положительной.");
+    } else {
+      this.balance -= amount;
+      console.log(`Вы сняли ${amount}. Текущий баланс: ${this.balance}.`);
+    }
+  }
+};
+
+// Проверка работы
+console.log(`Начальный баланс: ${bankAccount.balance}`);
+bankAccount.deposit(1000); // Пополняем счет
+bankAccount.withdraw(300); // Снимаем средства
+bankAccount.withdraw(800); // Пытаемся снять больше, чем есть на счете
+console.log(`Итоговый баланс: ${bankAccount.balance}`);
+</code></pre>
+
+          </div>
+
         </div>
-    </footer>
-    <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
+      </article>
+
+      <article>
+        <p>3. Напишите функцию createStudent(name, group), которая возвращает объект со свойствами name, group и
+          методом introduce().
+        </p>
+        <div class="dropdown">
+
+          <button class="dropdown-btn button" type="button">Показать решение</button>
+          <div class="dropdown__content visually-hidden">
+            <pre><code class="language-js block-code">function createStudent(name, group) {
+  return {
+    name: name,
+    group: group,
+
+    // Метод для представления студента
+    introduce: function() {
+      console.log(`Студент ${this.name} из группы ${this.group}.`);
+    }
+  };
+}
+
+// Проверка работы
+const student1 = createStudent("Иван Петров", "ИС-21");
+const student2 = createStudent("Мария Сидорова", "ЭК-22");
+
+student1.introduce(); // Выведет: Студент Иван Петров из группы ИС-21.
+student2.introduce(); // Выведет: Студент Мария Сидорова из группы ЭК-22.
+</code></pre>
+
+          </div>
+
+        </div>
+      </article>
+
+
+
+      <div class="links__wrapper">
+        <div class="links links__left"><a href="function.html">← Функции</a></div>
+        <div class="links links__right"><a href="events.html">События →</a></div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner container">
+      <a href="#" class="footer__logo logo">
+        <img src="" alt="" class="logo__image" loading="lazy">
+        <span>Учебник JavaScript</span>
+      </a>
+      <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+    </div>
+  </footer>
+  <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
 </body>
-<script>
-    /* === Логика для кнопки "Наверх" === */
 
-    // Ждем, пока вся HTML-структура загрузится
-    document.addEventListener("DOMContentLoaded", () => {
-
-        // 1. Находим нашу кнопку в DOM
-        const scrollTopBtn = document.getElementById('scrollToTopBtn');
-
-        // Убедимся, что кнопка существует на странице
-        if (scrollTopBtn) {
-
-            // 2. Назначаем обработчик на событие "scroll" (прокрутка)
-            window.addEventListener('scroll', () => {
-
-                // Порог, после которого кнопка появится (например, 400px)
-                const scrollThreshold = 400;
-
-                // Проверяем, насколько далеко пользователь прокрутил страницу
-                if (window.scrollY > scrollThreshold) {
-                    // Если прокрутили достаточно далеко - показываем кнопку
-                    scrollTopBtn.classList.add('show');
-                } else {
-                    // Иначе - скрываем
-                    scrollTopBtn.classList.remove('show');
-                }
-            });
-
-            // 3. Назначаем обработчик на событие "click" (нажатие)
-            scrollTopBtn.addEventListener('click', () => {
-
-                // Плавно прокручиваем страницу к самому верху
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // 'smooth' - для плавной прокрутки
-                });
-
-            });
-        }
-    });
-</script>
-    <dialog class="overlay container" id="overlay">
-        <form class="overlay__close-button-wrapper" method="dialog">
-            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
-                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
-                        stroke="none">
-                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
-                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+<dialog class="overlay container" id="overlay">
+  <form class="overlay__close-button-wrapper" method="dialog">
+    <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+        viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+        <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+          <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+          <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
                         c-54 0 -77 -4 -81 -14z" />
-                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+          <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
                         -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
                         75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
                         0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
                         0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
                         -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
-                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+          <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
                         c-39 1 -74 0 -78 -4z" />
-                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+          <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
                         3 c-55 2 -74 -1 -78 -11z" />
-                    </g>
-                </svg>
-                <span class="visually-hidden">close navigation menu</span>
-            </button>
-        </form>
-        <div class="overlay__body">
-            <ul class="overlay__list">
-                <h2 class="overlay__title">Содержание</h2>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="variables.html" class="overlay__link">Переменные</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="typesData.html" class="overlay__link">Типы данных</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="conditions.html" class="overlay__link">Условные
-                            конструкции</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="cycles.html" class="overlay__link">Циклы</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="function.html" class="overlay__link">Функции</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="objects.html" class="overlay__link">Объекты</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="events1.html" class="overlay__link">События</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="forms.html" class="overlay__link">Работа с формами</a>
-                    </h3>
-                </li>
-            </ul>
-        </div>
-    </dialog>
-    <button class="button" id="scrollToTopBtn" title="Наверх">↑</button>
+        </g>
+      </svg>
+      <span class="visually-hidden">close navigation menu</span>
+    </button>
+  </form>
+  <div class="overlay__body">
+    <ul class="overlay__list">
+      <h2 class="overlay__title">Содержание</h2>
+      <li class="overlay__item">
+        <h3 class="overlay__subtitle">
+          <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+        </h3>
+      </li>
+      <li>
+        <h3 class="overlay__subtitle">
+          <a href="variables.html" class="overlay__link">Переменные</a>
+        </h3>
+      </li>
+      <li>
+        <h3 class="overlay__subtitle">
+          <a href="typesData.html" class="overlay__link">Типы данных</a>
+        </h3>
+      </li>
+      <li>
+        <h3 class="overlay__subtitle">
+          <a href="conditions.html" class="overlay__link">Условные
+            конструкции</a>
+        </h3>
+      </li>
+      <li class="overlay__item">
+        <h3 class="overlay__subtitle">
+          <a href="cycles.html" class="overlay__link">Циклы</a>
+        </h3>
+      </li>
+      <li class="overlay__item">
+        <h3 class="overlay__subtitle">
+          <a href="function.html" class="overlay__link">Функции</a>
+        </h3>
+      </li>
+      <li class="overlay__item">
+        <h3 class="overlay__subtitle">
+          <a href="objects.html" class="overlay__link">Объекты</a>
+        </h3>
+      </li>
+      <li class="overlay__item">
+        <h3 class="overlay__subtitle">
+          <a href="events.html" class="overlay__link">События</a>
+        </h3>
+      </li>
+      <li class="overlay__item">
+        <h3 class="overlay__subtitle">
+          <a href="forms.html" class="overlay__link">Работа с формами</a>
+        </h3>
+      </li>
+    </ul>
+  </div>
+</dialog>
+<button class="button" id="scrollToTopBtn" title="Наверх">↑</button>
 </body>
 
 </html>

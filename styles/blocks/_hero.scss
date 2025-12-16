@@ -1,0 +1,85 @@
+.hero-content {
+  padding-block: 50px;
+    margin: 0px;
+    
+}
+.hero {
+    max-width: 1000px;
+}
+.body-wrapper {
+  margin-inline: auto;
+  max-width: 500px;
+}
+.wrapper-hero {
+display: flex;
+align-items: center;
+color: var(--color-active);
+font-family: 'PressStart2P';
+
+@include mobile {
+  flex-direction: column;
+}
+
+}
+.hero-desc {
+   font-size: 14px;
+   @include tablet {
+    font-size: 12px;
+      
+    }
+}
+
+.hero-title {
+    top: 0;
+    left: 0;
+
+    text-decoration: none;
+    font-family: 'PressStart2P';
+   
+    @include tablet {
+      font-size: 36px;
+    }
+
+
+    &:hover {
+        background-color: transparent;
+        color: var(--color-hover);
+        transition: color var(--transition-duration);
+
+    }
+
+    &:active {
+        color: var(--color-active);
+        transition: color var(--transition-duration);
+
+    }
+
+    &:focus-visible {
+        color: inherit;
+        outline: 3px solid var(--color-hover);
+        outline-offset: 2px;
+        transition: outline var(--transition-duration);
+
+    }
+    
+  
+}
+.hero-subtitle {
+    font-family: 'PressStart2P';
+    font-size: 20px;
+    
+}
+.hero-image {
+    width: 500px;
+    @include tablet {
+      width: 350px;
+    }
+}
+
+.hero-link{
+  text-decoration: underline;
+  margin-block: 30px;
+  font-family: 'PressStart2P';
+    font-size: 20px;
+    color: var(--color-active);
+}

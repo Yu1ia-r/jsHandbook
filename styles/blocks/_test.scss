@@ -1,0 +1,106 @@
+
+.main-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 760px;
+    padding: 20px 20px 50px;
+    margin: 40px auto;
+   
+}
+.test-container {
+     display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.page input[type="text"], select {
+     width: 100%;
+    padding: 12px 15px;
+    background-color: #fff;
+    border: 1px solid #333; 
+    border-radius: 0; 
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    box-shadow: none; 
+    transition: background-color 0.2s;
+}
+
+.page input[type="text"]:focus, select:focus {
+    outline: none;
+    background-color: #f7f7f7;
+    border-color: #000;
+}
+
+.page p {
+    margin-block: 24px;
+}
+
+.page input[type="radio"], input[type="checkbox"] {
+    margin-right: 15px;
+    transform: scale(1.1); 
+    accent-color: #000; 
+    cursor: pointer;
+}
+
+.options {
+    margin-top: 15px;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    color: #444;
+    transition: color 0.2s;
+}
+
+.options label:hover {
+    color: #000;
+}
+
+.pixel-text {
+    font-family: 'PressStart2P';
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.test__button {
+    
+    width: auto;
+    height: auto;
+    padding: 10px;
+&:hover {
+      color: var(--color-light);
+      border-color: var(--color-light);
+      background-color: var(--color-accent);
+      transition:  border-color var(--transition-duration), color var(--transition-duration), background-color  var(--transition-duration);
+
+    }
+
+    &:focus-visible {
+      outline: none;
+      background-color: rgba(126, 0, 21, 0.384);
+      transition: background-color var(--transition-duration);
+    }
+    
+}
+
+
+
+#result-section {
+    margin-top: 40px;
+    padding: 30px;
+    border: 1px solid #000;
+    background-color: #fff;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 60px;
+    box-shadow: 8px 8px 0px #f0f0f0; 
+}

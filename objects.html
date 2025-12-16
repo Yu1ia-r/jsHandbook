@@ -19,7 +19,7 @@
 <body>
   <header class="header">
     <div class="header__inner container">
-      <a href="#" class="header__logo logo">
+      <a href="index.html" class="header__logo logo">
         <img src="" alt="" class="logo__image" loading="lazy">
         <span>Учебник JavaScript</span>
       </a>
@@ -229,7 +229,7 @@ console.log(counter1.increment()); // 2
 
       <h2>Задания для самостоятельной работы:</h2>
       <article>
-        <p>1. 1. Создайте объект book, который хранит название, автора и год издания. Добавьте метод info(), который
+        <p>1. Создайте объект book, который хранит название, автора и год издания. Добавьте метод info(), который
           выводит строку:
           Книга <название>, автор <автор>, издана в <год>.
         </p>
@@ -259,7 +259,7 @@ book.info(); // Выведет: Книга "Война и мир", автор Л
       </article>
 
       <article>
-        <p>2. 2. Создайте объект bankAccount с полем balance и методами deposit(amount) и withdraw(amount).</p>
+        <p>2. Создайте объект bankAccount с полем balance и методами deposit(amount) и withdraw(amount).</p>
         <div class="dropdown">
 
           <button class="dropdown-btn button" type="button">Показать решение</button>
@@ -344,13 +344,29 @@ student2.introduce(); // Выведет: Студент Мария Сидоро�
       </div>
     </div>
   </main>
-  <footer class="footer">
+<footer class="footer">
     <div class="footer__inner container">
-      <a href="#" class="footer__logo logo">
-        <img src="" alt="" class="logo__image" loading="lazy">
-        <span>Учебник JavaScript</span>
-      </a>
-      <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+      <div class="footer__left">
+        <a href="index.html" class="footer__logo logo">
+          <img src="" alt="" class="logo__image" loading="lazy">
+          <span>Учебник JavaScript</span>
+        </a>
+        <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        <a class="footer__menu" href="test.html">Итоговый тест</a>
+        <a class="footer__menu" href="sourcer.html">Источники информации</a>
+      </div>
+      <div class="footer__right">
+        <p>Учебный проект разработан студентами ТГУ имени Г.Р. Державина, группа:
+          "0401/3006", направление "Прикладная математика и информатика".</p>
+        <ul>
+          <li><span class="desc">Введение в JS, переменные, типы данных</span><span class="name">Соболева Дарья</span></li>
+          <li><span class="desc">Условия, циклы, разработка главной страницы</span><span class="name">Честных Анастасия</span></li>
+          <li><span class="desc">Функции, объекты, DOM, разработка итогового теста</span><span class="name">Полякова Мария</span></li>
+          <li><span class="desc">События, формы, разработка концепции и дизайна, руководство</span><span class="name">Рогулина Юлия</span>
+          </li>
+
+        </ul>
+      </div>
     </div>
   </footer>
   <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>

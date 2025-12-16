@@ -2,222 +2,212 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Введение - учебник js</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="js/buttonScroll.js"></script>
-    <script src="js/buttonDropdown.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Введение - учебник js</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="js/buttonScroll.js"></script>
+  <script src="js/buttonDropdown.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
-    <!-- and it's easy to individually load additional languages -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
-    <script>hljs.highlightAll();</script>
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+  <script>hljs.highlightAll();</script>
 
 </head>
 
 
 <body>
-    <header class="header">
-        <div class="header__inner container">
-            <a href="#" class="header__logo logo">
-                <img src="" alt="" class="logo__image" loading="lazy">
-                <span>Учебник JavaScript</span>
-            </a>
-            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
-                type="button">Меню</button>
-        </div>
+  <header class="header">
+    <div class="header__inner container">
+      <a href="index.html" class="header__logo logo">
+        <img src="" alt="" class="logo__image" loading="lazy">
+        <span>Учебник JavaScript</span>
+      </a>
+      <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+        type="button">Меню</button>
+    </div>
 
-    </header>
-    <main class="content">
-        <div class="container">
-            <div class="links__wrapper">
-               
-                <div class="links links__right"><a href="variables.html">Переменные →</a></div>
-            </div>
-            <h1>Введение в JavaScript</h1>
-            <h2>История создания</h2>
-            <p>Стоило бы начать с истории происхождения языка. JavaScript был создан в 1995 Бренданом Айком, инженером в
-                компании Netscape. Первый релиз состоялся вместе с выходом браузера Netscape 2 в начале 1996 года.
-                Сначала язык назывался LiveScript, но затем был переименован в связи с маркетинговыми целями, чтобы
-                сыграть на популярности языка Java компании Sun Microsystem — несмотря на это языки практически не имеют
-                ничего общего друг с другом.</p>
-            <p>Чуть позже Microsoft выпустила очень похожий и практически совместимый язык JScript, который шёл вместе с
-                IE3. Через пару месяцев Netscape отправил язык в Ecma International, Европейскую организацию
-                занимающуюся стандартами, которая выпустила первую версию стандарта ECMAScript в 1997. Стандарт получил
-                значимое обновление в ECMAScript edition 3 в 1999, и остаётся самым стабильным до сегодняшнего дня.
-                Четвёртая версия была отклонена, из-за проблем с усложнениями в языке. Многие вещи из четвёртого издания
-                послужили основой для стандарта ECMAScript 5 (декабрь 2009) и ECMAScript 6 (июнь 2015).</p>
-            <p>В отличие от большинства языков, JavaScript не следует концепции ввода (input) и вывода (output). Он
-                спроектирован таким образом, чтобы запускаться как язык сценариев, встроенный в среду исполнения. Самая
-                популярная среда исполнения это браузер, однако интерпретаторы JavaScript присутствуют и в Adobe
-                Acrobat, Photoshop, Yahoo!'s Widget engine, и даже в серверном окружении, например node.js.</p>
+  </header>
+  <main class="content">
+    <div class="container">
+      <div class="links__wrapper">
 
-            <h2>Что такое JavaScript</h2>
-            <p>Изначально JavaScript был создан, чтобы «сделать веб-страницы живыми».
-                Программы на этом языке называются скриптами. Они могут встраиваться в HTML и выполняться автоматически
-                при загрузке веб-страницы.
-                Скрипты распространяются и выполняются, как простой текст. Им не нужна специальная подготовка или
-                компиляция для запуска.</p>
-            <p>Сегодня JavaScript может выполняться не только в браузере, но и на сервере или на любом другом
-                устройстве, которое имеет специальную программу, называющуюся «движком» JavaScript.
-                У браузера есть собственный движок, который иногда называют «виртуальная машина JavaScript».
-                Разные движки имеют разные «кодовые имена». Например:
-            <ul class="text__list">
-                <li>V8 – в Chrome, Opera и Edge</li>
-                <li>SpiderMonkey – в Firefox</li>
-            </ul><br>
-            Ещё есть «Chakra» для IE, «JavaScriptCore», «Nitro» и «SquirrelFish» для Safari и т.д.
-            Эти названия полезно знать, так как они часто используются в статьях для разработчиков. Мы тоже будем их
-            использовать. Например, если «функциональность X поддерживается V8», тогда «Х», скорее всего, работает в
-            Chrome, Opera и Edge.
-            </p>
-             <div class="links__wrapper">
-               
-                <div class="links links__right"><a href="variables.html">Переменные →</a></div>
-            </div>
-        </div>
-    </main>
-    <footer class="footer">
-        <div class="footer__inner container">
-            <a href="#" class="footer__logo logo">
-                <img src="" alt="" class="logo__image" loading="lazy">
-                <span>Учебник JavaScript</span>
-            </a>
-            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
-        </div>
-    </footer>
-    <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
-</body>
+        <div class="links links__right"><a href="variables.html">Переменные →</a></div>
+      </div>
+      <h1>Введение в JavaScript</h1>
+      <h2>История создания</h2>
+      <p>Стоило бы начать с истории происхождения языка. JavaScript был создан в 1995 Бренданом Айком, инженером в
+        компании Netscape. Первый релиз состоялся вместе с выходом браузера Netscape 2 в начале 1996 года.
+        Сначала язык назывался LiveScript, но затем был переименован в связи с маркетинговыми целями, чтобы
+        сыграть на популярности языка Java компании Sun Microsystem — несмотря на это языки практически не имеют
+        ничего общего друг с другом.</p>
+      <p>Чуть позже Microsoft выпустила очень похожий и практически совместимый язык JScript, который шёл вместе с
+        IE3. Через пару месяцев Netscape отправил язык в Ecma International, Европейскую организацию
+        занимающуюся стандартами, которая выпустила первую версию стандарта ECMAScript в 1997. Стандарт получил
+        значимое обновление в ECMAScript edition 3 в 1999, и остаётся самым стабильным до сегодняшнего дня.
+        Четвёртая версия была отклонена, из-за проблем с усложнениями в языке. Многие вещи из четвёртого издания
+        послужили основой для стандарта ECMAScript 5 (декабрь 2009) и ECMAScript 6 (июнь 2015).</p>
+      <p>В отличие от большинства языков, JavaScript не следует концепции ввода (input) и вывода (output). Он
+        спроектирован таким образом, чтобы запускаться как язык сценариев, встроенный в среду исполнения. Самая
+        популярная среда исполнения это браузер, однако интерпретаторы JavaScript присутствуют и в Adobe
+        Acrobat, Photoshop, Yahoo!'s Widget engine, и даже в серверном окружении, например node.js.</p>
 
-    <dialog class="overlay container" id="overlay">
-        <form class="overlay__close-button-wrapper" method="dialog">
-            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
-                <!DOCTYPE svg
-                    PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
-                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+      <h2>Что такое JavaScript</h2>
+      <p>Изначально JavaScript был создан, чтобы «сделать веб-страницы живыми».
+        Программы на этом языке называются скриптами. Они могут встраиваться в HTML и выполняться автоматически
+        при загрузке веб-страницы.
+        Скрипты распространяются и выполняются, как простой текст. Им не нужна специальная подготовка или
+        компиляция для запуска.</p>
+      <p>Сегодня JavaScript может выполняться не только в браузере, но и на сервере или на любом другом
+        устройстве, которое имеет специальную программу, называющуюся «движком» JavaScript.
+        У браузера есть собственный движок, который иногда называют «виртуальная машина JavaScript».
+        Разные движки имеют разные «кодовые имена». Например:
+      <ul class="text__list">
+        <li>V8 – в Chrome, Opera и Edge</li>
+        <li>SpiderMonkey – в Firefox</li>
+      </ul><br>
+      Ещё есть «Chakra» для IE, «JavaScriptCore», «Nitro» и «SquirrelFish» для Safari и т.д.
+      Эти названия полезно знать, так как они часто используются в статьях для разработчиков. Мы тоже будем их
+      использовать. Например, если «функциональность X поддерживается V8», тогда «Х», скорее всего, работает в
+      Chrome, Opera и Edge.
+      </p>
+      <div class="links__wrapper">
 
-                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
-                        stroke="none">
-                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
-                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+        <div class="links links__right"><a href="variables.html">Переменные →</a></div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__left">
+        <a href="index.html" class="footer__logo logo">
+          <img src="" alt="" class="logo__image" loading="lazy">
+          <span>Учебник JavaScript</span>
+        </a>
+        <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        <a class="footer__menu" href="test.html">Итоговый тест</a>
+        <a class="footer__menu" href="sourcer.html">Источники информации</a>
+      </div>
+      <div class="footer__right">
+        <p>Учебный проект разработан студентами ТГУ имени Г.Р. Державина, группа:
+          "0401/3006", направление "Прикладная математика и информатика".</p>
+        <ul>
+          <li><span class="desc">Введение в JS, переменные, типы данных</span><span class="name">Соболева Дарья</span></li>
+          <li><span class="desc">Условия, циклы, разработка главной страницы</span><span class="name">Честных Анастасия</span></li>
+          <li><span class="desc">Функции, объекты, DOM, разработка итогового теста</span><span class="name">Полякова Мария</span></li>
+          <li><span class="desc">События, формы, разработка концепции и дизайна, руководство</span><span class="name">Рогулина Юлия</span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
+
+
+  <dialog class="overlay container" id="overlay">
+    <form class="overlay__close-button-wrapper" method="dialog">
+      <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+          viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+
+          <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+            <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+            <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
                         c-54 0 -77 -4 -81 -14z" />
-                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+            <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
                         -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
                         75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
                         0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
                         0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
                         -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
-                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+            <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
                         c-39 1 -74 0 -78 -4z" />
-                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+            <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
                         3 c-55 2 -74 -1 -78 -11z" />
-                    </g>
-                </svg>
-                <span class="visually-hidden">close navigation menu</span>
-            </button>
-        </form>
-        <div class="overlay__body">
-            <ul class="overlay__list">
-                <h2 class="overlay__title">Содержание</h2>
+          </g>
+        </svg>
+        <span class="visually-hidden">close navigation menu</span>
+      </button>
+    </form>
+    <div class="overlay__body">
+      <ul class="overlay__list">
+        <h2 class="overlay__title">Содержание</h2>
 
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
-                    </h3>
-                </li>
+        <li class="overlay__item">
+          <h3 class="overlay__subtitle">
+            <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+          </h3>
+        </li>
 
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="variables.html" class="overlay__link">Переменные</a>
-                    </h3>
+        <li>
+          <h3 class="overlay__subtitle">
+            <a href="variables.html" class="overlay__link">Переменные</a>
+          </h3>
 
-                </li>
+        </li>
 
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="typesData.html" class="overlay__link">Типы данных</a>
-                    </h3>
-                </li>
+        <li>
+          <h3 class="overlay__subtitle">
+            <a href="typesData.html" class="overlay__link">Типы данных</a>
+          </h3>
+        </li>
 
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="conditions.html" class="overlay__link">Условные
-                            конструкции</a>
-                    </h3>
-                    <!-- <ul class="overlay__sublist">
-                        <li class="overlay__subitem">
-                            <h4>
-                                <a href="4-1.html" class="ovaelay__sublink">4.1 Булева логика: основа условий</a>
+        <li>
+          <h3 class="overlay__subtitle">
+            <a href="conditions.html" class="overlay__link">Условные
+              конструкции</a>
+          </h3>
+        </li>
 
-                            </h4>
-                        </li>
-                        <li class="overlay__subitem">
-                            <h4>
-                                <a href="4-2.html" class="ovaelay__sublink">4.2 Конструкция if </a>
-                            </h4>
-                        </li>
-                        <li class="overlay__subitem">
-                            <h4>
-                                <a href="4-3.html" class="ovaelay__sublink">4.3 Конструкция if...else </a>
-                            </h4>
-                        </li>
-                        <li class="overlay__subitem">
-                            <h4>
-                                <a href="4-4.html" class="ovaelay__sublink">4.4 Последовательная проверка: else if </a>
-                            </h4>
-                        </li>
-                        <li class="overlay__subitem">
-                            <h4>
-                                <a href="4-5.html" class="ovaelay__sublink">4.5 Вложенные условия</a>
-                            </h4>
-                        </li>
-                        <li class="overlay__subitem">
-                            <h4>
-                                <a href="4-6.html" class="ovaelay__sublink">4.6 Логические операторы для составных
-                                    условий</a>
-                            </h4>
-                        </li>
-                    </ul> -->
-                </li>
+        <li class="overlay__item">
+          <h3 class="overlay__subtitle">
+            <a href="cycles.html" class="overlay__link">Циклы</a>
 
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="cycles.html" class="overlay__link">Циклы</a>
+          </h3>
+        </li>
 
-                    </h3>
-                </li>
+        <li class="overlay__item">
+          <h3 class="overlay__subtitle">
+            <a href="function.html" class="overlay__link">Функции</a>
+          </h3>
+        </li>
 
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="function.html" class="overlay__link">Функции</a>
-                    </h3>
-                </li>
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="objects.html" class="overlay__link">Объекты</a>
+        </h3>
+        </li>
 
-                <li class="overlay__item"></li>
-                <h3 class="overlay__subtitle">
-                    <a href="objects.html" class="overlay__link">Объекты</a>
-                </h3>
-                </li>
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="events.html" class="overlay__link">События</a>
+        </h3>
+        </li>
 
-                <li class="overlay__item"></li>
-                <h3 class="overlay__subtitle">
-                    <a href="events.html" class="overlay__link">События</a>
-                </h3>
-                </li>
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="forms.html" class="overlay__link">Работа с формами</a>
+        </h3>
+        </li>
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="test.html" class="overlay__link">Итоговый тест</a>
+        </h3>
+        </li>
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="sourcer.html" class="overlay__link">Источники информации</a>
+        </h3>
+        </li>
 
-                <li class="overlay__item"></li>
-                <h3 class="overlay__subtitle">
-                    <a href="forms.html" class="overlay__link">Работа с формами</a>
-                </h3>
-                </li>
-
-            </ul>
-        </div>
-    </dialog>
+      </ul>
+    </div>
+  </dialog>
 </body>
 
 </html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Итоговый тест</title>
+   
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<>
+ <header class="header">
+        <div class="header__inner container">
+            <a href="index.html" class="header__logo logo">
+                <img src="" alt="" class="logo__image" loading="lazy">
+                <span>Учебник JavaScript</span>
+            </a>
+            <button class="header__menu menu button" id="openOverlay" onclick="overlay.showModal()"
+                type="button">Меню</button>
+        </div>
+
+    </header>
+    <div class="main-content">
+        <h1 class="pixel-text">Итоговый тест</h1>
+        
+        <div id="test-container">
+            <div class="page" id="page-1">
+                
+     
+                <h3>Часть 1: Основы и Синтаксис</h3>
+
+                <p>1. Какая функция вызывает <b>всплывающее окно</b> с полем для ввода текста?</p>
+                <input type="text" id="q1" name="q1" placeholder="Впишите название функции...">
+
+                <p>2. Какая функция выводит окно с кнопками "ОК" и "Отмена"?</p>
+                <input type="text" id="q2" name="q2">
+
+                <p>3. Какое ключевое слово прерывает цикл досрочно?</p>
+                <input type="text" id="q3" name="q3">
+
+                <p>4. Оператор, возвращающий тип переменной?</p>
+                <input type="text" id="q4" name="q4">
+
+                <p>5. Чему равно свойство <code>length</code> у <code>[10, 20, 30]</code>?</p>
+                <input type="text" id="q5" name="q5">
+
+                <p>6. Глобальный объект в браузере называется...</p>
+                <input type="text" id="q6" name="q6">
+
+              
+
+                <h3>Часть 2: Типы и Операторы</h3>
+
+                <p>7. Результат: <code>"1" + 2</code>?</p>
+                <select id="q7" name="q7">
+                    <option value="" selected disabled>Выберите ответ...</option>
+                    <option value="a">3</option>
+                    <option value="b" data-correct="true">"12"</option>
+                    <option value="c">NaN</option>
+                </select>
+
+                <p>8. Оператор строгого равенства?</p>
+                <select id="q8" name="q8">
+                    <option value="" selected disabled>Выберите...</option>
+                    <option value="a">==</option>
+                    <option value="b" data-correct="true">===</option>
+                    <option value="c">=</option>
+                </select>
+
+                <p>9. Что вернет <code>Boolean("")</code>?</p>
+                <select id="q9" name="q9">
+                    <option value="a">true</option>
+                    <option value="b" data-correct="true">false</option>
+                    <option value="c">undefined</option>
+                </select>
+
+                <p>10. Что такое NaN?</p>
+                <select id="q10" name="q10">
+                    <option value="a">Not a Null</option>
+                    <option value="b" data-correct="true">Not a Number (тип number)</option>
+                    <option value="c">Ошибка синтаксиса</option>
+                </select>
+
+              
+
+             
+                <h3>Часть 3: Множественный выбор</h3>
+
+                <p>11. Какие значения являются <b>Falsy</b> (ложными)?</p>
+                <div class="options">
+                    <label><input type="checkbox" name="q11" value="a" data-correct="true"> 0</label>
+                    <label><input type="checkbox" name="q11" value="b" data-correct="true"> null</label>
+                    <label><input type="checkbox" name="q11" value="c" data-correct="false"> "0"</label>
+                    <label><input type="checkbox" name="q11" value="d" data-correct="true"> undefined</label>
+                    <label><input type="checkbox" name="q11" value="e" data-correct="true"> NaN</label>
+                </div>
+
+                <p>12. Способы объявления переменных?</p>
+                <div class="options">
+                    <label><input type="checkbox" name="q12" value="a" data-correct="true"> var</label>
+                    <label><input type="checkbox" name="q12" value="b" data-correct="false"> int</label>
+                    <label><input type="checkbox" name="q12" value="c" data-correct="true"> let</label>
+                    <label><input type="checkbox" name="q12" value="d" data-correct="true"> const</label>
+                </div>
+
+                <p>13. Какие циклы существуют в JS?</p>
+                <div class="options">
+                    <label><input type="checkbox" name="q13" value="a" data-correct="true"> for</label>
+                    <label><input type="checkbox" name="q13" value="b" data-correct="true"> while</label>
+                    <label><input type="checkbox" name="q13" value="c" data-correct="false"> repeat</label>
+                    <label><input type="checkbox" name="q13" value="d" data-correct="true"> do...while</label>
+                </div>
+
+                <p>14. Что происходит при клике на дочернюю кнопку внутри div? (Всплытие)</p>
+                <div class="options">
+                    <label><input type="checkbox" name="q14" value="a" data-correct="true"> Сработает обработчик на кнопке</label>
+                    <label><input type="checkbox" name="q14" value="b" data-correct="true"> Сработает обработчик на родителе (div)</label>
+                    <label><input type="checkbox" name="q14" value="c" data-correct="false"> Событие исчезнет</label>
+                </div>
+
+                
+
+               
+                <h3>Часть 4: Функции и Объекты</h3>
+
+                <p>15. Как правильно создать функцию?</p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="a" data-correct="false"> func myFunc()</label>
+                    <label><input type="radio" name="q15" value="b" data-correct="true"> function myFunc() {}</label>
+                    <label><input type="radio" name="q15" value="c" data-correct="false"> let f() {}</label>
+                </div>
+
+                <p>16. Как вернуть результат из функции?</p>
+                <div class="options">
+                    <label><input type="radio" name="q16" value="a" data-correct="false"> break</label>
+                    <label><input type="radio" name="q16" value="b" data-correct="true"> return</label>
+                    <label><input type="radio" name="q16" value="c" data-correct="false"> console.log</label>
+                </div>
+
+                <p>17. Что такое метод объекта?</p>
+                <div class="options">
+                    <label><input type="radio" name="q17" value="a" data-correct="false"> Просто строка</label>
+                    <label><input type="radio" name="q17" value="b" data-correct="true"> Свойство, хранящее функцию</label>
+                    <label><input type="radio" name="q17" value="c" data-correct="false"> Скрытое свойство</label>
+                </div>
+
+                <p>18. Что делает <code>this</code> в методе объекта?</p>
+                <div class="options">
+                    <label><input type="radio" name="q18" value="a" data-correct="false"> Ссылается на Window</label>
+                    <label><input type="radio" name="q18" value="b" data-correct="true"> Ссылается на сам объект</label>
+                    <label><input type="radio" name="q18" value="c" data-correct="false"> Ничего не делает</label>
+                </div>
+
+                <p>19. Как перебрать свойства объекта?</p>
+                <div class="options">
+                    <label><input type="radio" name="q19" value="a" data-correct="false"> for...of</label>
+                    <label><input type="radio" name="q19" value="b" data-correct="true"> for...in</label>
+                    <label><input type="radio" name="q19" value="c" data-correct="false"> while</label>
+                </div>
+
+                <p>20. Чем стрелочная функция отличается от обычной?</p>
+                <div class="options">
+                    <label><input type="radio" name="q20" value="a" data-correct="false"> Ничем</label>
+                    <label><input type="radio" name="q20" value="b" data-correct="true"> Синтаксисом => и this</label>
+                </div>
+
+                
+
+                
+                <h3>Часть 5: DOM и Работа с Браузером</h3>
+
+                <p>21. Что такое DOM?</p>
+                <div class="options">
+                    <label><input type="radio" name="q21" value="a" data-correct="false"> База данных браузера</label>
+                    <label><input type="radio" name="q21" value="b" data-correct="true"> Объектная модель документа (HTML)</label>
+                    <label><input type="radio" name="q21" value="c" data-correct="false"> Язык стилей</label>
+                </div>
+
+                <p>22. Метод для поиска <b>одного</b> элемента по CSS-селектору?</p>
+                <div class="options">
+                    <label><input type="radio" name="q22" value="a" data-correct="false"> getElementById</label>
+                    <label><input type="radio" name="q22" value="b" data-correct="false"> querySelectorAll</label>
+                    <label><input type="radio" name="q22" value="c" data-correct="true"> querySelector</label>
+                </div>
+
+                <p>23. Как изменить текст внутри элемента?</p>
+                <div class="options">
+                    <label><input type="radio" name="q23" value="a" data-correct="false"> el.value = ...</label>
+                    <label><input type="radio" name="q23" value="b" data-correct="true"> el.textContent = ...</label>
+                    <label><input type="radio" name="q23" value="c" data-correct="false"> el.write()</label>
+                </div>
+
+                <p>24. Как правильно удалить элемент?</p>
+                <div class="options">
+                    <label><input type="radio" name="q24" value="a" data-correct="true"> el.remove()</label>
+                    <label><input type="radio" name="q24" value="b" data-correct="false"> el.delete()</label>
+                    <label><input type="radio" name="q24" value="c" data-correct="false"> el.hide()</label>
+                </div>
+
+                <p>25. Событие для валидации поля после ухода фокуса?</p>
+                <div class="options">
+                    <label><input type="radio" name="q25" value="a" data-correct="false"> focus</label>
+                    <label><input type="radio" name="q25" value="b" data-correct="true"> change / blur</label>
+                    <label><input type="radio" name="q25" value="c" data-correct="false"> click</label>
+                </div>
+
+                <p>26. Зачем использовать <code>event.code</code> вместо <code>event.key</code> в играх?</p>
+                <div class="options">
+                    <label><input type="radio" name="q26" value="a" data-correct="true"> Он не зависит от раскладки клавиатуры</label>
+                    <label><input type="radio" name="q26" value="b" data-correct="false"> Он работает быстрее</label>
+                </div>
+
+                <p>27. Как найти ближайшего родителя по селектору (делегирование)?</p>
+                <div class="options">
+                    <label><input type="radio" name="q27" value="a" data-correct="false"> parentNode</label>
+                    <label><input type="radio" name="q27" value="b" data-correct="true"> closest()</label>
+                    <label><input type="radio" name="q27" value="c" data-correct="false"> findParent()</label>
+                </div>
+
+                <p>28. Разница между <code>mouseover</code> и <code>mouseenter</code>?</p>
+                <div class="options">
+                    <label><input type="radio" name="q28" value="a" data-correct="true"> mouseover всплывает, mouseenter - нет</label>
+                    <label><input type="radio" name="q28" value="b" data-correct="false"> Разницы нет</label>
+                </div>
+
+                <p>29. Как повесить событие клика?</p>
+                <div class="options">
+                    <label><input type="radio" name="q29" value="a" data-correct="false"> btn.click = func</label>
+                    <label><input type="radio" name="q29" value="b" data-correct="true"> btn.addEventListener('click', func)</label>
+                </div>
+
+                <p>30. Что выведет <code>typeof null</code>?</p>
+                <div class="options">
+                    <label><input type="radio" name="q30" value="a" data-correct="false"> "null"</label>
+                    <label><input type="radio" name="q30" value="b" data-correct="true"> "object"</label>
+                    <label><input type="radio" name="q30" value="c" data-correct="false"> "undefined"</label>
+                </div>
+
+
+                <br><br>
+                <div class="button-container">
+                    <button class="button test__button" type="button" id="clear-button">Очистить</button>
+                    <button class="button test__button" type="submit" id="submit-button">Отправить</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-section" style="display: none;"></div>
+    </div>
+  </main>
+<footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__left">
+        <a href="index.html" class="footer__logo logo">
+          <img src="" alt="" class="logo__image" loading="lazy">
+          <span>Учебник JavaScript</span>
+        </a>
+        <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        <a class="footer__menu" href="test.html">Итоговый тест</a>
+        <a class="footer__menu" href="sourcer.html">Источники информации</a>
+      </div>
+      <div class="footer__right">
+        <p>Учебный проект разработан студентами ТГУ имени Г.Р. Державина, группа:
+          "0401/3006", направление "Прикладная математика и информатика".</p>
+        <ul>
+          <li><span class="desc">Введение в JS, переменные, типы данных</span><span class="name">Соболева Дарья</span></li>
+          <li><span class="desc">Условия, циклы, разработка главной страницы</span><span class="name">Честных Анастасия</span></li>
+          <li><span class="desc">Функции, объекты, DOM, разработка итогового теста</span><span class="name">Полякова Мария</span></li>
+          <li><span class="desc">События, формы, разработка концепции и дизайна, руководство</span><span class="name">Рогулина Юлия</span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </footer>
+    <dialog class="overlay container" id="overlay">
+        <form class="overlay__close-button-wrapper" method="dialog">
+            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+                <!DOCTYPE svg
+                    PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+                        c-54 0 -77 -4 -81 -14z" />
+                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                        -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
+                        75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
+                        0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
+                        0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
+                        -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
+                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+                        c-39 1 -74 0 -78 -4z" />
+                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                        3 c-55 2 -74 -1 -78 -11z" />
+                    </g>
+                </svg>
+                <span class="visually-hidden">close navigation menu</span>
+            </button>
+        </form>
+        <div class="overlay__body">
+            <ul class="overlay__list">
+                <h2 class="overlay__title">Содержание</h2>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                    </h3>
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="variables.html" class="overlay__link">Переменные</a>
+                    </h3>
+
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="typesData.html" class="overlay__link">Типы данных</a>
+                    </h3>
+                </li>
+
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="conditions.html" class="overlay__link">Условные
+                            конструкции</a>
+                    </h3>
+                 </li>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="cycles.html" class="overlay__link">Циклы</a>
+
+                    </h3>
+                </li>
+
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="function.html" class="overlay__link">Функции</a>
+                    </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="objects.html" class="overlay__link">Объекты</a>
+                </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="events.html" class="overlay__link">События</a>
+                </h3>
+                </li>
+
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="forms.html" class="overlay__link">Работа с формами</a>
+                </h3>
+                </li>
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="test.html" class="overlay__link">Итоговый тест</a>
+                </h3>
+                </li>
+                <li class="overlay__item"></li>
+                <h3 class="overlay__subtitle">
+                    <a href="sourcer.html" class="overlay__link">Источники информации</a>
+                </h3>
+                </li>
+
+            </ul>
+        </div>
+    </dialog>
+    <script src="js/testApp.js"></script>
+</body>
+</html>

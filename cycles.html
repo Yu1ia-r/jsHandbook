@@ -20,7 +20,7 @@
 <body>
     <header class="header">
         <div class="header__inner container">
-            <a href="#" class="header__logo logo">
+            <a href="index.html" class="header__logo logo">
                 <img src="" alt="" class="logo__image" loading="lazy">
                 <span>Учебник JavaScript</span>
             </a>
@@ -31,19 +31,23 @@
     </header>
     <main class="content">
         <div class="container">
-             <div class="links__wrapper">
+            <div class="links__wrapper">
                 <div class="links links__left"><a href="conditions.html">← Условные конструкции</a></div>
-                   <div class="links links__right"><a href="function.html">Функции →</a></div>
+                <div class="links links__right"><a href="function.html">Функции →</a></div>
             </div>
-            
+
             <h1>Циклы</h1>
-            
+
             <h2>Введение в циклы</h2>
-            <p>Циклы — это фундаментальная концепция программирования, позволяющая выполнять один и тот же блок кода многократно. Они незаменимы при обработке данных, работе с коллекциями элементов и автоматизации повторяющихся задач. В JavaScript существует несколько видов циклов, но в этой главе мы сосредоточимся на двух основных: <i>while</i> и <i>for</i>.</p>
+            <p>Циклы — это фундаментальная концепция программирования, позволяющая выполнять один и тот же блок кода
+                многократно. Они незаменимы при обработке данных, работе с коллекциями элементов и автоматизации
+                повторяющихся задач. В JavaScript существует несколько видов циклов, но в этой главе мы сосредоточимся
+                на двух основных: <i>while</i> и <i>for</i>.</p>
 
             <h2>Цикл while</h2>
-            <p>Цикл <i>while</i> выполняет блок кода <b>до тех пор, пока заданное условие истинно</b>. Это универсальный цикл, который особенно полезен, когда количество итераций заранее неизвестно.</p>
-            
+            <p>Цикл <i>while</i> выполняет блок кода <b>до тех пор, пока заданное условие истинно</b>. Это универсальный
+                цикл, который особенно полезен, когда количество итераций заранее неизвестно.</p>
+
             <h3>Базовый синтаксис</h3>
             <pre><code class="language-js block-code">while (условие) {
 // Тело цикла - код, который будет повторяться
@@ -87,27 +91,33 @@ console.log(`Для достижения суммы 100 потребовалос
 </code></pre>
 
             <h3>Важные особенности и предостережения</h3>
-            <p>1. Бесконечные циклы: Если условие всегда остается истинным, цикл будет выполняться бесконечно, что может привести к зависанию программы.</p>
+            <p>1. Бесконечные циклы: Если условие всегда остается истинным, цикл будет выполняться бесконечно, что может
+                привести к зависанию программы.</p>
             <pre><code class="language-js block-code">// БЕСКОНЕЧНЫЙ ЦИКЛ - НЕ ВЫПОЛНЯТЬ!
 while (true) {
 console.log("Этот текст будет выводиться вечно");
 }
 </code></pre>
-            <p>2. Изменение условия: Важно обеспечить, чтобы в теле цикла было что-то, что в конечном итоге сделает условие ложным.</p>
-            <p>3. Проверка условия до выполнения: Цикл <i>while</i> проверяет условие перед каждой итерацией. Если условие изначально ложно, тело цикла не выполнится ни разу.</p>
+            <p>2. Изменение условия: Важно обеспечить, чтобы в теле цикла было что-то, что в конечном итоге сделает
+                условие ложным.</p>
+            <p>3. Проверка условия до выполнения: Цикл <i>while</i> проверяет условие перед каждой итерацией. Если
+                условие изначально ложно, тело цикла не выполнится ни разу.</p>
 
             <h2>Цикл for</h2>
-            <p>Цикл <i>for</i> предоставляет более компактный синтаксис для создания циклов и особенно полезен, когда количество итераций известно заранее или зависит от счетчика.</p>
-            
+            <p>Цикл <i>for</i> предоставляет более компактный синтаксис для создания циклов и особенно полезен, когда
+                количество итераций известно заранее или зависит от счетчика.</p>
+
             <h3>Базовый синтаксис</h3>
             <pre><code class="language-js block-code">for (инициализация; условие; завершающее_выражение) {
 // Тело цикла
 }
 </code></pre>
             <ul class="text__list">
-                <li><b>Инициализация:</b> Выполняется один раз перед началом цикла. Обычно здесь объявляется и инициализируется счетчик.</li>
+                <li><b>Инициализация:</b> Выполняется один раз перед началом цикла. Обычно здесь объявляется и
+                    инициализируется счетчик.</li>
                 <li><b>Условие:</b> Проверяется перед каждой итерацией. Если истинно, выполняется тело цикла.</li>
-                <li><b>Завершающее выражение:</b> Выполняется после каждой итерации. Обычно здесь изменяется значение счетчика.</li>
+                <li><b>Завершающее выражение:</b> Выполняется после каждой итерации. Обычно здесь изменяется значение
+                    счетчика.</li>
             </ul>
 
             <h3>Как работает цикл for</h3>
@@ -160,7 +170,7 @@ console.log("Этот текст будет выводиться вечно");
 
             <h2>Управление выполнением циклов: break и continue</h2>
             <p>Внутри циклов можно использовать два специальных оператора для управления выполнением:</p>
-            
+
             <h3>Оператор break</h3>
             <p>Немедленно прерывает выполнение цикла и передает управление следующей за циклом инструкции.</p>
             <p>Пример:</p>
@@ -187,7 +197,8 @@ console.log(i);
 </code></pre>
 
             <h2>Вложенные циклы</h2>
-            <p>Циклы можно помещать внутрь других циклов, создавая вложенные конструкции. Это полезно для работы с многомерными структурами данных.</p>
+            <p>Циклы можно помещать внутрь других циклов, создавая вложенные конструкции. Это полезно для работы с
+                многомерными структурами данных.</p>
             <p>Пример: Таблица умножения</p>
             <pre><code class="language-js block-code">for (let i = 1; i <= 10; i++) {
 let row = "";
@@ -200,105 +211,229 @@ console.log(row);
 
             <h2>Выбор между while и for</h2>
             <ul class="text__list">
-                <li>Используйте <b>while</b>, когда количество итераций неизвестно заранее и зависит от условия, которое может измениться в теле цикла.</li>
+                <li>Используйте <b>while</b>, когда количество итераций неизвестно заранее и зависит от условия, которое
+                    может измениться в теле цикла.</li>
                 <li>Используйте <b>for</b>, когда количество итераций известно заранее или зависит от счетчика.</li>
             </ul>
 
-              <div class="links__wrapper">
-                 <div class="links links__left"><a href="conditions.html">← Условные конструкции</a></div>
-                   <div class="links links__right"><a href="function.html">Функции →</a></div>
+
+            <h2>Задания для самостоятельной работы:</h2>
+            <article>
+                <p>1. Напишите цикл for, который выводит в консоль все четные числа от 2 до 20.</p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">for (let i = 2; i <= 20; i += 2) {
+    console.log(i);
+}
+</code></pre>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <p>2. Напишите программу, которая с помощью цикла while вычисляет сумму чисел от 1 до 100.
+</p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">let sum = 0;
+let i = 1;
+
+while (i <= 100) {
+    sum += i; // добавляем текущее число к сумме
+    i++;      // увеличиваем счетчик на 1
+}
+
+console.log("Сумма чисел от 1 до 100: " + sum);
+</code></pre>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <p>3. Напишите программу, которая:
+1) Запрашивает у пользователя число через prompt
+2) Выводит таблицу умножения для этого числа от 1 до 10
+3) Использует цикл for для генерации таблицы
+</p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">// Запрашиваем число у пользователя
+let number = parseFloat(prompt("Введите число для таблицы умножения:"));
+
+// Проверяем, что введено корректное число
+if (isNaN(number)) {
+    console.log("Ошибка: введите корректное число!");
+} else {
+    console.log(`Таблица умножения для числа ${number}:`);
+    console.log("------------------------");
+    
+    // Используем цикл for для генерации таблицы умножения
+    for (let i = 1; i <= 10; i++) {
+        let result = number * i;
+        console.log(`${number} × ${i} = ${result}`);
+    }
+}
+</code></pre>
+                    </div>
+                </div>
+            </article>
+  <article>
+                <p>4. Напишите программу, которая выводит все простые числа в диапазоне от 2 до 100.
+</p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code">console.log("Простые числа от 2 до 100:");
+
+for (let num = 2; num <= 100; num++) {
+    let isPrime = true;
+    
+    // Проверяем, является ли число простым
+    if (num === 2) {
+        isPrime = true;
+    } else if (num % 2 === 0) {
+        isPrime = false;
+    } else {
+        // Проверяем делители от 3 до квадратного корня из числа
+        for (let i = 3; i <= Math.sqrt(num); i += 2) {
+            if (num % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    
+    // Если число простое, выводим его
+    if (isPrime) {
+        console.log(num);
+    }
+}
+</code></pre>
+                    </div>
+                </div>
+            </article>
+
+
+
+            <div class="links__wrapper">
+                <div class="links links__left"><a href="conditions.html">← Условные конструкции</a></div>
+                <div class="links links__right"><a href="function.html">Функции →</a></div>
             </div>
         </div>
     </main>
     <footer class="footer">
-        <div class="footer__inner container">
-            <a href="#" class="footer__logo logo">
-                <img src="" alt="" class="logo__image" loading="lazy">
-                <span>Учебник JavaScript</span>
-            </a>
-            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
-        </div>
-    </footer>
+    <div class="footer__inner container">
+      <div class="footer__left">
+        <a href="index.html" class="footer__logo logo">
+          <img src="" alt="" class="logo__image" loading="lazy">
+          <span>Учебник JavaScript</span>
+        </a>
+        <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        <a class="footer__menu" href="test.html">Итоговый тест</a>
+        <a class="footer__menu" href="sourcer.html">Источники информации</a>
+      </div>
+      <div class="footer__right">
+        <p>Учебный проект разработан студентами ТГУ имени Г.Р. Державина, группа:
+          "0401/3006", направление "Прикладная математика и информатика".</p>
+        <ul>
+          <li><span class="desc">Введение в JS, переменные, типы данных</span><span class="name">Соболева Дарья</span></li>
+          <li><span class="desc">Условия, циклы, разработка главной страницы</span><span class="name">Честных Анастасия</span></li>
+          <li><span class="desc">Функции, объекты, DOM, разработка итогового теста</span><span class="name">Полякова Мария</span></li>
+          <li><span class="desc">События, формы, разработка концепции и дизайна, руководство</span><span class="name">Рогулина Юлия</span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </footer>
     <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
 </body>
 
-    <dialog class="overlay container" id="overlay">
-        <form class="overlay__close-button-wrapper" method="dialog">
-            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
-                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
-                        stroke="none">
-                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
-                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+<dialog class="overlay container" id="overlay">
+    <form class="overlay__close-button-wrapper" method="dialog">
+        <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                    <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                    <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
                         c-54 0 -77 -4 -81 -14z" />
-                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                    <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
                         -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
                         75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
                         0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
                         0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
                         -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
-                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+                    <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
                         c-39 1 -74 0 -78 -4z" />
-                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                    <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
                         3 c-55 2 -74 -1 -78 -11z" />
-                    </g>
-                </svg>
-                <span class="visually-hidden">close navigation menu</span>
-            </button>
-        </form>
-        <div class="overlay__body">
-            <ul class="overlay__list">
-                <h2 class="overlay__title">Содержание</h2>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="variables.html" class="overlay__link">Переменные</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="typesData.html" class="overlay__link">Типы данных</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="conditions.html" class="overlay__link">Условные
-                            конструкции</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="cycles.html" class="overlay__link">Циклы</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="function.html" class="overlay__link">Функции</a>
-                    </h3>
-                </li>
-                <li class="overlay__item"></li>
+                </g>
+            </svg>
+            <span class="visually-hidden">close navigation menu</span>
+        </button>
+    </form>
+    <div class="overlay__body">
+        <ul class="overlay__list">
+            <h2 class="overlay__title">Содержание</h2>
+            <li class="overlay__item">
                 <h3 class="overlay__subtitle">
-                    <a href="objects.html" class="overlay__link">Объекты</a>
+                    <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
                 </h3>
-                </li>
-                <li class="overlay__item"></li>
+            </li>
+            <li>
                 <h3 class="overlay__subtitle">
-                    <a href="events.html" class="overlay__link">События</a>
+                    <a href="variables.html" class="overlay__link">Переменные</a>
                 </h3>
-                </li>
-                <li class="overlay__item"></li>
+            </li>
+            <li>
                 <h3 class="overlay__subtitle">
-                    <a href="forms.html" class="overlay__link">Работа с формами</a>
+                    <a href="typesData.html" class="overlay__link">Типы данных</a>
                 </h3>
-                </li>
-            </ul>
-        </div>
-    </dialog>
+            </li>
+            <li>
+                <h3 class="overlay__subtitle">
+                    <a href="conditions.html" class="overlay__link">Условные
+                        конструкции</a>
+                </h3>
+            </li>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="cycles.html" class="overlay__link">Циклы</a>
+                </h3>
+            </li>
+            <li class="overlay__item">
+                <h3 class="overlay__subtitle">
+                    <a href="function.html" class="overlay__link">Функции</a>
+                </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="objects.html" class="overlay__link">Объекты</a>
+            </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="events.html" class="overlay__link">События</a>
+            </h3>
+            </li>
+            <li class="overlay__item"></li>
+            <h3 class="overlay__subtitle">
+                <a href="forms.html" class="overlay__link">Работа с формами</a>
+            </h3>
+            </li>
+        </ul>
+    </div>
+</dialog>
 </body>
 
 </html>

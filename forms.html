@@ -21,7 +21,7 @@
 <body>
     <header class="header">
         <div class="header__inner container">
-            <a href="#" class="header__logo logo">
+            <a href="index.html" class="header__logo logo">
                 <img src="" alt="" class="logo__image" loading="lazy">
                 <span>Учебник JavaScript</span>
             </a>
@@ -60,6 +60,100 @@
                 <i>submit</i> для окончательной валидации всей формы.
             </p>
 
+
+            <h2>Задания для самостоятельной работы:</h2>
+            <article>
+                <p>
+                <pre><code class="language-js block-code"> &lt;form id="login-form"&gt;
+    &lt;input type="email" id="email" placeholder="Ваш email"&gt;
+    &lt;span id="email-hint" style="color: grey; font-size: 0.8em;"&gt;&lt;/span&gt;
+    &lt;br&gt;
+    &lt;input type="password" id="password" placeholder="Пароль"&gt;
+    &lt;br&gt;
+    &lt;button type="submit"&gt;Войти&lt;/button&gt;
+&lt;/form&gt;
+&lt;div id="message"&gt;&lt;/div&gt;  
+                    </code></pre>
+
+               1) На событие focus поля #email показывайте в #email-hint текст "Введите корректный email".
+                <br>2) На событие blur поля #email убирайте этот текст.
+                <br>3) На событие change поля #password проверяйте длину пароля. Если меньше 6 символов, подсвечивайте поле
+                красной рамкой (el.style.border = '2px solid red'), иначе — убирайте подсветку.
+                <br>4) На событие submit формы отменяйте стандартную отправку (preventDefault()), проверяйте, что email не
+                пустой и пароль >= 6 символов. Если всё ок, выводите в #message текст "Форма успешно отправлена!"
+                зеленым цветом. Если есть ошибки — выводите "Исправьте ошибки в форме" красным.</p>
+                <div class="dropdown">
+
+                    <button class="dropdown-btn button" type="button">Показать решение</button>
+
+                    <div class="dropdown__content visually-hidden">
+                        <pre><code class="language-js block-code"> const form = document.getElementById('login-form');
+const emailInput = document.getElementById('email');
+const emailHint = document.getElementById('email-hint');
+const passwordInput = document.getElementById('password');
+const messageDiv = document.getElementById('message');
+
+// 1. Обработка focus на email
+emailInput.addEventListener('focus', () => {
+emailHint.textContent = 'Введите корректный email';
+});
+
+// 2. Обработка blur на email
+emailInput.addEventListener('blur', () => {
+emailHint.textContent = '';
+});
+
+// 3. Обработка change на password
+passwordInput.addEventListener('change', function() {
+if (this.value.length < 6) {
+    this.style.border = '2px solid red';
+} else {
+    this.style.border = '';
+}
+});
+
+// 4. Обработка submit формы
+form.addEventListener('submit', function(event) {
+event.preventDefault(); // Отменяем стандартную отправку формы
+
+let isValid = true;
+
+// Проверка email
+if (!emailInput.value) {
+    isValid = false;
+    emailInput.style.border = '2px solid red';
+} else {
+    emailInput.style.border = '';
+}
+
+// Проверка пароля
+if (passwordInput.value.length < 6) {
+    isValid = false;
+    passwordInput.style.border = '2px solid red';
+} else {
+    passwordInput.style.border = '';
+}
+
+// Вывод сообщения
+if (isValid) {
+    messageDiv.textContent = 'Форма успешно отправлена!';
+    messageDiv.style.color = 'green';
+    // Здесь обычно делается отправка данных на сервер, например, через fetch
+} else {
+    messageDiv.textContent = 'Исправьте ошибки в форме';
+    messageDiv.style.color = 'red';
+}
+});
+</code></pre>
+
+                    </div>
+
+                </div>
+            </article>
+
+
+
+
             <div class="links__wrapper">
                 <div class="links links__left"><a href="events.html">← События</a></div>
 
@@ -82,93 +176,110 @@
         </div>
     </main>
     <footer class="footer">
-        <div class="footer__inner container">
-            <a href="#" class="footer__logo logo">
-                <img src="" alt="" class="logo__image" loading="lazy">
-                <span>Учебник JavaScript</span>
-            </a>
-            <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
-        </div>
-    </footer>
+    <div class="footer__inner container">
+      <div class="footer__left">
+        <a href="index.html" class="footer__logo logo">
+          <img src="" alt="" class="logo__image" loading="lazy">
+          <span>Учебник JavaScript</span>
+        </a>
+        <button class="footer__menu menu button" onclick="overlay.showModal()" type="button">Меню</button>
+        <a class="footer__menu" href="test.html">Итоговый тест</a>
+        <a class="footer__menu" href="sourcer.html">Источники информации</a>
+      </div>
+      <div class="footer__right">
+        <p>Учебный проект разработан студентами ТГУ имени Г.Р. Державина, группа:
+          "0401/3006", направление "Прикладная математика и информатика".</p>
+        <ul>
+          <li><span class="desc">Введение в JS, переменные, типы данных</span><span class="name">Соболева Дарья</span></li>
+          <li><span class="desc">Условия, циклы, разработка главной страницы</span><span class="name">Честных Анастасия</span></li>
+          <li><span class="desc">Функции, объекты, DOM, разработка итогового теста</span><span class="name">Полякова Мария</span></li>
+          <li><span class="desc">События, формы, разработка концепции и дизайна, руководство</span><span class="name">Рогулина Юлия</span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </footer>
     <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
 
 
-<dialog class="overlay container" id="overlay">
-    <form class="overlay__close-button-wrapper" method="dialog">
-        <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
-                viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
-                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
-                    <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
-                    <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+    <dialog class="overlay container" id="overlay">
+        <form class="overlay__close-button-wrapper" method="dialog">
+            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
+                        stroke="none">
+                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
                         c-54 0 -77 -4 -81 -14z" />
-                    <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
                         -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
                         75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
                         0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
                         0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
                         -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
-                    <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 7KA-70 3
+                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 7KA-70 3
                         c-39 1 -74 0 -78 -4z" />
-                    <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
                         3 c-55 2 -74 -1 -78 -11z" />
-                </g>
-            </svg>
-            <span class="visually-hidden">close navigation menu</span>
-        </button>
-    </form>
-    <div class="overlay__body">
-        <ul class="overlay__list">
-            <h2 class="overlay__title">Содержание</h2>
-            <li class="overlay__item">
+                    </g>
+                </svg>
+                <span class="visually-hidden">close navigation menu</span>
+            </button>
+        </form>
+        <div class="overlay__body">
+            <ul class="overlay__list">
+                <h2 class="overlay__title">Содержание</h2>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="variables.html" class="overlay__link">Переменные</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="typesData.html" class="overlay__link">Типы данных</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="overlay__subtitle">
+                        <a href="conditions.html" class="overlay__link">Условные
+                            конструкции</a>
+                    </h3>
+                </li>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="cycles.html" class="overlay__link">Циклы</a>
+                    </h3>
+                </li>
+                <li class="overlay__item">
+                    <h3 class="overlay__subtitle">
+                        <a href="function.html" class="overlay__link">Функции</a>
+                    </h3>
+                </li>
+                <li class="overlay__item"></li>
                 <h3 class="overlay__subtitle">
-                    <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+                    <a href="objects.html" class="overlay__link">Объекты</a>
                 </h3>
-            </li>
-            <li>
+                </li>
+                <li class="overlay__item"></li>
                 <h3 class="overlay__subtitle">
-                    <a href="variables.html" class="overlay__link">Переменные</a>
+                    <a href="events.html" class="overlay__link">События</a>
                 </h3>
-            </li>
-            <li>
+                </li>
+                <li class="overlay__item"></li>
                 <h3 class="overlay__subtitle">
-                    <a href="typesData.html" class="overlay__link">Типы данных</a>
+                    <a href="forms.html" class="overlay__link">Работа с формами</a>
                 </h3>
-            </li>
-            <li>
-                <h3 class="overlay__subtitle">
-                    <a href="conditions.html" class="overlay__link">Условные
-                        конструкции</a>
-                </h3>
-            </li>
-            <li class="overlay__item">
-                <h3 class="overlay__subtitle">
-                    <a href="cycles.html" class="overlay__link">Циклы</a>
-                </h3>
-            </li>
-            <li class="overlay__item">
-                <h3 class="overlay__subtitle">
-                    <a href="function.html" class="overlay__link">Функции</a>
-                </h3>
-            </li>
-            <li class="overlay__item"></li>
-            <h3 class="overlay__subtitle">
-                <a href="objects.html" class="overlay__link">Объекты</a>
-            </h3>
-            </li>
-            <li class="overlay__item"></li>
-            <h3 class="overlay__subtitle">
-                <a href="events.html" class="overlay__link">События</a>
-            </h3>
-            </li>
-            <li class="overlay__item"></li>
-            <h3 class="overlay__subtitle">
-                <a href="forms.html" class="overlay__link">Работа с формами</a>
-            </h3>
-            </li>
-        </ul>
-    </div>
-</dialog>
+                </li>
+            </ul>
+        </div>
+    </dialog>
 
 </body>
 

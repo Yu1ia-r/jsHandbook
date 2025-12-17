@@ -82,4 +82,7 @@ font-family: 'PressStart2P';
   font-family: 'PressStart2P';
     font-size: 20px;
     color: var(--color-active);
+    &:hover {
+      background-color: #70849e88;
+    }
 }

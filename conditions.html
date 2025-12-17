@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Условные конструкции - учебник js</title>
+   <link rel="icon" href="images/favjs.png">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="js/buttonScroll.js"></script>
     <script src="js/buttonDropdown.js"></script>
@@ -568,82 +569,105 @@ if (isNaN(num1) || isNaN(num2)) {
     <button class="button scrollToTop" id="scrollToTopBtn" title="Наверх">↑</button>
 
     <dialog class="overlay container" id="overlay">
-        <form class="overlay__close-button-wrapper" method="dialog">
-            <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
-                    viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000"
-                        stroke="none">
-                        <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
-                        <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
+    <form class="overlay__close-button-wrapper" method="dialog">
+      <button class="overlay__close-button button cross-button" id="closeOverlay" type="submit">
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="45.000000pt" height="45.000000pt"
+          viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet">
+
+          <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+            <path d="M462 1463 l3 -78 75 0 75 0 0 75 0 75 -78 3 -78 3 3 -78z" />
+            <path d="M1384 1526 c-3 -7 -4 -42 -2 -77 l3 -64 75 0 75 0 3 78 3 77 -76 0
                         c-54 0 -77 -4 -81 -14z" />
-                        <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
+            <path d="M620 1305 l0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 -80 0 -80 -75 0
                         -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 75 0 75 0 0
                         75 0 75 80 0 80 0 0 -75 0 -75 75 0 75 0 0 -75 0 -75 75 0 75 0 0 75 0 75 -75
                         0 -75 0 0 75 0 75 -75 0 -75 0 0 80 0 80 75 0 75 0 0 75 0 75 75 0 75 0 0 75
                         0 75 -75 0 -75 0 0 -75 0 -75 -75 0 -75 0 0 -75 0 -75 -80 0 -80 0 0 75 0 75
                         -75 0 -75 0 0 75 0 75 -75 0 -75 0 0 -75z" />
-                        <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
+            <path d="M467 614 c-4 -4 -7 -41 -7 -81 l0 -74 78 3 77 3 0 75 0 75 -70 3
                         c-39 1 -74 0 -78 -4z" />
-                        <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
+            <path d="M1384 607 c-3 -8 -4 -43 -2 -78 l3 -64 78 -3 78 -3 -3 78 -3 78 -73
                         3 c-55 2 -74 -1 -78 -11z" />
-                    </g>
-                </svg>
-                <span class="visually-hidden">close navigation menu</span>
-            </button>
-        </form>
-        <div class="overlay__body">
-            <ul class="overlay__list">
-                <h2 class="overlay__title">Содержание</h2>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="variables.html" class="overlay__link">Переменные</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="typesData.html" class="overlay__link">Типы данных</a>
-                    </h3>
-                </li>
-                <li>
-                    <h3 class="overlay__subtitle">
-                        <a href="conditions.html" class="overlay__link">Условные
-                            конструкции</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="cycles.html" class="overlay__link">Циклы</a>
-                    </h3>
-                </li>
-                <li class="overlay__item">
-                    <h3 class="overlay__subtitle">
-                        <a href="function.html" class="overlay__link">Функции</a>
-                    </h3>
-                </li>
-                <li class="overlay__item"></li>
-                <h3 class="overlay__subtitle">
-                    <a href="objects.html" class="overlay__link">Объекты</a>
-                </h3>
-                </li>
-                <li class="overlay__item"></li>
-                <h3 class="overlay__subtitle">
-                    <a href="events.html" class="overlay__link">События</a>
-                </h3>
-                </li>
-                <li class="overlay__item"></li>
-                <h3 class="overlay__subtitle">
-                    <a href="forms.html" class="overlay__link">Работа с формами</a>
-                </h3>
-                </li>
-            </ul>
-        </div>
-    </dialog>
-</body>
+          </g>
+        </svg>
+        <span class="visually-hidden">close navigation menu</span>
+      </button>
+    </form>
+    <div class="overlay__body">
+      <ul class="overlay__list">
+        <h2 class="overlay__title">Содержание</h2>
+
+        <li class="overlay__item">
+          <h3 class="overlay__subtitle">
+            <a href="introJS.html" class="overlay__link">Введение в JavaScript</a>
+          </h3>
+        </li>
+
+        <li>
+          <h3 class="overlay__subtitle">
+            <a href="variables.html" class="overlay__link">Переменные</a>
+          </h3>
+
+        </li>
+
+        <li>
+          <h3 class="overlay__subtitle">
+            <a href="typesData.html" class="overlay__link">Типы данных</a>
+          </h3>
+        </li>
+
+        <li>
+          <h3 class="overlay__subtitle">
+            <a href="conditions.html" class="overlay__link">Условные
+              конструкции</a>
+          </h3>
+        </li>
+
+        <li class="overlay__item">
+          <h3 class="overlay__subtitle">
+            <a href="cycles.html" class="overlay__link">Циклы</a>
+
+          </h3>
+        </li>
+
+        <li class="overlay__item">
+          <h3 class="overlay__subtitle">
+            <a href="function.html" class="overlay__link">Функции</a>
+          </h3>
+        </li>
+
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="objects.html" class="overlay__link">Объекты</a>
+        </h3>
+        </li>
+
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="events.html" class="overlay__link">События</a>
+        </h3>
+        </li>
+
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="forms.html" class="overlay__link">Работа с формами</a>
+        </h3>
+        </li>
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="test.html" class="overlay__link">Итоговый тест</a>
+        </h3>
+        </li>
+        <li class="overlay__item"></li>
+        <h3 class="overlay__subtitle">
+          <a href="sourcer.html" class="overlay__link">Источники информации</a>
+        </h3>
+        </li>
+
+      </ul>
+    </div>
+  </dialog>
+
 
 </html>

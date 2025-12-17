@@ -412,6 +412,11 @@ article {
   overflow: hidden;
 }
 
+.sourcer-list li a,
+.link--underline {
+  text-decoration: underline;
+}
+
 .header {
   z-index: 1;
   top: 0;
@@ -908,4 +913,7 @@ article {
   font-family: "PressStart2P";
   font-size: 20px;
   color: var(--color-active);
+}
+.hero-link:hover {
+  background-color: rgba(112, 132, 158, 0.5333333333);
 }/*# sourceMappingURL=styles.css.map */
